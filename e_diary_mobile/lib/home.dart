@@ -22,8 +22,8 @@ class HomePage extends StatelessWidget {
             FlatButton(
               textColor: Colors.white,
               onPressed: () {
-                storage.delete(key: "jwt");
-                Navigator.push(
+                logout();
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (context) => MyApp()),
@@ -47,6 +47,10 @@ class HomePage extends StatelessWidget {
           )
         ),
       );
+
+  Future<void> logout() async {
+    storage.delete(key: "jwt");
+  }
 }
 
 Future<User> getData() async {
