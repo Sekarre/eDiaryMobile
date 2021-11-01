@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
+import '../URI.dart';
 import 'auth.dart';
-import 'home.dart';
+import '../home.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -34,7 +35,7 @@ class LoginPage extends StatelessWidget {
         })
     );
     if(res.statusCode == 200)
-      return User.fromJson(jsonDecode(res.body)).token;
+      return AuthResponse.fromJson(jsonDecode(res.body)).token;
     return null;
   }
 
