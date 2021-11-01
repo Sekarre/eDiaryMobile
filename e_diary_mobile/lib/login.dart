@@ -1,17 +1,17 @@
 import 'dart:convert';
-
-import 'package:e_diary_mobile/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
+import 'auth.dart';
 import 'home.dart';
 
 class LoginPage extends StatelessWidget {
+
+  final storage = FlutterSecureStorage();
+
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
-  String? JWT = null;
-
 
   void displayDialog(context, title, text) => showDialog(
     context: context,
@@ -38,7 +38,6 @@ class LoginPage extends StatelessWidget {
     return null;
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,13 +63,13 @@ class LoginPage extends StatelessWidget {
                   onPressed: () async {
                     var username = _usernameController.text;
                     var password = _passwordController.text;
-                    JWT = await attemptLogIn(username, password);
-                    if(JWT != null) {
-                      storage.write(key: "jwt", value: JWT);
+                    var jwt = await attemptLogIn(username, password);
+                    if(jwt != null) {
+                      storage.write(key: "jwt", value: "Bearer $jwt");
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomePage.fromBase64(JWT!)
+                              builder: (context) => HomePage()
                           )
                       );
                     } else {
@@ -84,17 +83,4 @@ class LoginPage extends StatelessWidget {
         )
     );
   }
-}
-
-class User {
-  final String token;
-  final String username;
-  final String email;
-
-  User(this.token, this.username, this.email);
-
-  User.fromJson(Map<String, dynamic> json):
-        token = json['token'],
-        username = json['username'],
-        email = json['email'];
 }
