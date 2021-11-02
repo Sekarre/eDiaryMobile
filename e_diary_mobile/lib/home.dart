@@ -8,6 +8,7 @@ import 'package:http/http.dart';
 import 'URI.dart';
 import 'auth/auth.dart';
 import 'menu/navDrawer.dart';
+import 'model/user.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -45,24 +46,4 @@ Future<User> getData() async {
   Response res = await http.get(SERVER_USER_PROFILE, headers: {HttpHeaders.authorizationHeader: jwt});
   return User.fromJson(jsonDecode(res.body));
 
-}
-
-class User {
-  String name;
-  int messageNumber;
-  String username;
-
-  User(this.name,
-      this.messageNumber,
-      this.username);
-
-  User.fromJson(Map<String, dynamic> json):
-        name = json['name'],
-        messageNumber = json['messageNumber'],
-        username = json['username'];
-
-  @override
-  String toString() {
-    return 'User{name: $name, messageNumber: $messageNumber, username: $username}';
-  }
 }
