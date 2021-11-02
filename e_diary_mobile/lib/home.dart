@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:e_diary_mobile/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'URI.dart';
 import 'auth/auth.dart';
+import 'menu/navDrawer.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -16,22 +16,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
       Scaffold(
+        drawer: NavDrawer(),
         appBar: AppBar(
-            title: Text("Test"),
+            title: Text("Main"),
           actions: <Widget>[
-            FlatButton(
-              textColor: Colors.white,
-              onPressed: () {
-                logout();
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MyApp()),
-                );
-              },
-              child: Text("Logout"),
-              shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
-            ),
           ],
         ),
         body: Center(
@@ -48,9 +36,6 @@ class HomePage extends StatelessWidget {
         ),
       );
 
-  Future<void> logout() async {
-    storage.delete(key: "jwt");
-  }
 }
 
 Future<User> getData() async {
