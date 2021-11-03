@@ -39,6 +39,7 @@ class LoginPage extends StatelessWidget {
     return null;
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,12 +68,16 @@ class LoginPage extends StatelessWidget {
                     var jwt = await attemptLogIn(username, password);
                     if(jwt != null) {
                       storage.write(key: "jwt", value: "Bearer $jwt");
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomePage()
-                          )
-                      );
+                      var user = await getData();
+                      if (user != null) {
+                        storage.write(key: "roles", value: user.roles.toString());
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage()
+                            )
+                        );
+                      }
                     } else {
                       displayDialog(context, "An Error Occurred", "No account was found matching that username and password");
                     }

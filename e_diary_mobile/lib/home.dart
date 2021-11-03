@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'URI.dart';
 import 'auth/auth.dart';
-import 'menu/navDrawer.dart';
+import 'menu/nav_drawer.dart';
 import 'model/user.dart';
 
 class HomePage extends StatelessWidget {
