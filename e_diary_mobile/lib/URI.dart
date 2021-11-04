@@ -5,3 +5,5 @@ Uri SERVER_CHANGE_PASSWORD = Uri.parse("$SERVER_IP/auth/password-change");
 
 Uri SERVER_USER = Uri.parse("$SERVER_IP/user");
 Uri SERVER_USER_PROFILE = Uri.parse("$SERVER_IP/user/profile");
+
+Uri SERVER_USER_INBOX = Uri.parse("$SERVER_IP/user/read-messages");

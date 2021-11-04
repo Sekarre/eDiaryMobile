@@ -1,7 +1,9 @@
+import 'package:e_diary_mobile/messages/message_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../auth/auth.dart';
+import '../main.dart';
 import '../model/role_type.dart';
 import '../navbar/nav_drawer.dart';
 
@@ -55,8 +57,8 @@ class UserMenuWidget extends StatelessWidget {
       crossAxisCount: 2,
       children: <Widget>[
         // user
-        message(),
-        notice(),
+        message(context),
+        notice(context),
       ],
     );
   }
@@ -73,11 +75,11 @@ class DeputyMenuWidget extends StatelessWidget {
       crossAxisCount: 2,
       children: <Widget>[
         // user
-        message(),
-        notice(),
+        message(context),
+        notice(context),
         // deputy
-        createClass(),
-        manageClass(),
+        createClass(context),
+        manageClass(context),
       ],
     );
   }
@@ -94,30 +96,35 @@ class HeadmasterMenuWidget extends StatelessWidget {
       crossAxisCount: 2,
       children: <Widget>[
         // user
-        message(),
-        notice(),
+        message(context),
+        notice(context),
         // deputy
-        createClass(),
-        manageClass(),
+        createClass(context),
+        manageClass(context),
         // headmaster
-        teacherReport(),
-        closeYear(),
-        lastYear(),
+        teacherReport(context),
+        closeYear(context),
+        lastYear(context),
       ],
     );
   }
 }
 
-Widget message() {
+Widget message(BuildContext context) {
   return InkWell(
     splashColor: Colors.amber,
-    onTap: () => null,
+    onTap: () => {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MessagesPage()),
+      ),
+    },
     child: Card(
       color: Colors.amber,
       child: Container(
         height: 200,
         width: 200,
-        child: Center(
+        child: const Center(
           child: Text(
             'Messages',
             style: TextStyle(
@@ -132,7 +139,7 @@ Widget message() {
   );
 }
 
-Widget notice() {
+Widget notice(BuildContext context) {
   return InkWell(
     splashColor: Colors.amber,
     onTap: () => null,
@@ -156,7 +163,7 @@ Widget notice() {
   );
 }
 
-Widget createClass() {
+Widget createClass(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
     onTap: () => null,
@@ -180,7 +187,7 @@ Widget createClass() {
   );
 }
 
-Widget manageClass() {
+Widget manageClass(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
     onTap: () => null,
@@ -204,7 +211,7 @@ Widget manageClass() {
   );
 }
 
-Widget teacherReport() {
+Widget teacherReport(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
     onTap: () => null,
@@ -228,7 +235,7 @@ Widget teacherReport() {
   );
 }
 
-Widget closeYear() {
+Widget closeYear(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
     onTap: () => null,
@@ -252,7 +259,7 @@ Widget closeYear() {
   );
 }
 
-Widget lastYear() {
+Widget lastYear(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
     onTap: () => null,
