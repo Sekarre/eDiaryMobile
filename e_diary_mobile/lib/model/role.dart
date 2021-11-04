@@ -17,3 +17,14 @@ class Role {
     return 'Role{id: $id, role: $name}';
   }
 }
+
+String getRawRoleNames(List<Role> roles) {
+  String roleBuilder = '';
+  roles.forEach((element) {
+    roleBuilder += element.name.split("ROLE_")[1] + '\n';
+  });
+  if ((roleBuilder != null) && (roleBuilder.length > 0) && roleBuilder.endsWith('\n')) {
+    roleBuilder = roleBuilder.substring(0, (roleBuilder.length-1));
+  }
+  return roleBuilder;
+}

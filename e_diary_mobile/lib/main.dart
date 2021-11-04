@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import 'auth/auth.dart';
-import 'home.dart';
+import 'home/home.dart';
 import 'auth/login.dart';
 
 final storage = FlutterSecureStorage();

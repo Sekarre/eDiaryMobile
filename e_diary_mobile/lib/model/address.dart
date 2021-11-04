@@ -19,4 +19,8 @@ class Address {
   String toString() {
     return 'Address{street: $street, city: $city, state: $state, zip: $zip, phoneNumber: $phoneNumber}';
   }
+
+  String toRawAddress() {
+    return ' $street,  \n $city,  $state, $zip, \n $phoneNumber}';
+  }
 }

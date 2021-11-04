@@ -1,5 +1,6 @@
 import 'package:e_diary_mobile/auth/auth.dart';
 import 'package:e_diary_mobile/model/role_type.dart';
+import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -103,7 +104,14 @@ class NavDrawer extends StatelessWidget {
     return ListTile(
       leading: Icon(Icons.verified_user),
       title: Text('Profile'),
-      onTap: () => {Navigator.of(context).pop()},
+      onTap: () => {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProfilePage()
+            )
+        )
+      },
     );
   }
 
@@ -190,6 +198,7 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Logout'),
       onTap: () => {
+        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),

@@ -1,11 +1,13 @@
 import 'dart:convert';
+
+import 'package:e_diary_mobile/home/home.dart';
+import 'package:e_diary_mobile/profile/profile_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 
 import '../URI.dart';
 import 'auth.dart';
-import '../home.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -68,7 +70,7 @@ class LoginPage extends StatelessWidget {
                     var jwt = await attemptLogIn(username, password);
                     if(jwt != null) {
                       storage.write(key: "jwt", value: "Bearer $jwt");
-                      var user = await getData();
+                      var user = await getProfile();
                       if (user != null) {
                         storage.write(key: "roles", value: user.roles.toString());
                         Navigator.push(

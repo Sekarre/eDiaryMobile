@@ -1,15 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
-import 'URI.dart';
-import 'auth/auth.dart';
-import 'menu/nav_drawer.dart';
-import 'model/role_type.dart';
-import 'model/user.dart';
+
+import '../auth/auth.dart';
+import '../model/role_type.dart';
+import '../navbar/nav_drawer.dart';
 
 class HomePage extends StatelessWidget {
 
@@ -43,15 +37,6 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-}
-
-Future<User> getData() async {
-
-  String jwt = await jwtOrEmpty;
-
-  Response res = await http.get(SERVER_USER_PROFILE, headers: {HttpHeaders.authorizationHeader: jwt});
-  return User.fromJson(jsonDecode(res.body));
 
 }
 
