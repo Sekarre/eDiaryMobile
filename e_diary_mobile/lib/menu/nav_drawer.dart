@@ -16,12 +16,12 @@ class NavDrawer extends StatelessWidget {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 if (hasRole(
-                    RoleType.ROLE_DEPUTY_HEAD, snapshot.data.toString())) {
-                  return drawDeputyHeadSidebar(context);
-                }
-                if (hasRole(
                     RoleType.ROLE_HEADMASTER, snapshot.data.toString())) {
                   return drawHeadmasterSidebar(context);
+                }
+                if (hasRole(
+                    RoleType.ROLE_DEPUTY_HEAD, snapshot.data.toString())) {
+                  return drawDeputyHeadSidebar(context);
                 }
                 return drawDefaultSidebar(context);
               } else {
@@ -112,7 +112,6 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Messages'),
       onTap: () => {
-        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),
@@ -126,7 +125,6 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Manage class'),
       onTap: () => {
-        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),
@@ -140,7 +138,6 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Create class'),
       onTap: () => {
-        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),
@@ -154,7 +151,6 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Teacher report'),
       onTap: () => {
-        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),
@@ -168,7 +164,6 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Close school year'),
       onTap: () => {
-        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),
@@ -182,7 +177,6 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Last years archive'),
       onTap: () => {
-        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),
@@ -196,7 +190,6 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Logout'),
       onTap: () => {
-        logout(),
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => MyApp()),
