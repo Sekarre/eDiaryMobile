@@ -48,3 +48,24 @@ Future<bool> sendNewMessage(Message message) async {
   return res.statusCode == 200;
 }
 
+Future<Message> getInboxSingleMessage(int id) async {
+  String jwt = await jwtOrEmpty;
+
+  Response response = await http.get(Uri.parse("$SERVER_USER_INBOX/$id"), headers: {
+    HttpHeaders.authorizationHeader: jwt,
+    HttpHeaders.acceptHeader: 'application/json; charset=UTF-8'
+  });
+
+  return Message.fromJson(jsonDecode(response.body));
+}
+
+Future<Message> getOutboxSingleMessage(int id) async {
+  String jwt = await jwtOrEmpty;
+
+  Response response = await http.get(Uri.parse("$SERVER_USER_OUTBOX/$id"), headers: {
+    HttpHeaders.authorizationHeader: jwt,
+    HttpHeaders.acceptHeader: 'application/json; charset=UTF-8'
+  });
+
+  return Message.fromJson(jsonDecode(response.body));
+}

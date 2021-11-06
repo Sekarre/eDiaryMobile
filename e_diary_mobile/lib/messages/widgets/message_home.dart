@@ -1,14 +1,14 @@
-import 'package:e_diary_mobile/messages/new_message.dart';
-import 'package:e_diary_mobile/messages/outbox.dart';
+import 'package:e_diary_mobile/messages/widgets/new_message.dart';
+import 'package:e_diary_mobile/messages/widgets/outbox.dart';
 import 'package:flutter/material.dart';
 
-import '../auth/auth.dart';
-import '../main.dart';
-import '../navbar/nav_drawer.dart';
+import '../../auth/auth.dart';
+import '../../main.dart';
+import '../../navbar/nav_drawer.dart';
 import 'inbox.dart';
 
-class MessagesPage extends StatelessWidget {
-  const MessagesPage({Key? key}) : super(key: key);
+class MessageHomeWidget extends StatelessWidget {
+  const MessageHomeWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ Widget sendMessage(BuildContext context) {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => NewMessagePage()
+              builder: (context) => NewMessageWidget()
           )
       )
     },
@@ -80,7 +80,7 @@ Widget outbox(BuildContext context) {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => const OutboxPage()
+              builder: (context) => const OutboxWidget()
           )
       )
     },
@@ -111,7 +111,7 @@ Widget inbox(BuildContext context) {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => InboxPage()
+              builder: (context) => InboxWidget()
           )
       )
     },

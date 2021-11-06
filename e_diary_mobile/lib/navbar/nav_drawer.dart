@@ -1,5 +1,5 @@
 import 'package:e_diary_mobile/auth/auth.dart';
-import 'package:e_diary_mobile/messages/message_home.dart';
+import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/model/role_type.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:flutter/material.dart';
@@ -123,7 +123,7 @@ class NavDrawer extends StatelessWidget {
       onTap: () => {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const MessagesPage()),
+          MaterialPageRoute(builder: (context) => const MessageHomeWidget()),
         ),
       },
     );

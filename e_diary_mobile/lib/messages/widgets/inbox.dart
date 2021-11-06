@@ -1,23 +1,24 @@
-import 'package:e_diary_mobile/messages/message_home.dart';
+import 'package:e_diary_mobile/messages/widgets/inbox_message.dart';
 import 'package:e_diary_mobile/model/message.dart';
 import 'package:e_diary_mobile/model/message_status.dart';
 import 'package:e_diary_mobile/shared/components/no_data.dart';
+import 'package:e_diary_mobile/shared/error_messages.dart';
 import 'package:flutter/material.dart';
 
-import 'message_service.dart';
+import '../message_service.dart';
 
-class OutboxPage extends StatelessWidget {
-  const OutboxPage({Key? key}) : super(key: key);
+class InboxWidget extends StatelessWidget {
+  const InboxWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getOutboxMessages(),
+        future: getInboxMessages(),
         builder: (context, AsyncSnapshot<List<Message>> snapshot) {
           if (snapshot.hasData) {
             return inboxMessagesListView(context, snapshot.requireData);
           } else {
-            return NoDataPage();
+            return NoDataWidget(NO_MESSAGES);
           }
         });
   }
@@ -25,8 +26,8 @@ class OutboxPage extends StatelessWidget {
   Scaffold inboxMessagesListView(BuildContext context, List<Message> messages) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Outbox"),
-        actions: const <Widget>[],
+        title: const Text("Inbox"),
+        actions:  <Widget>[],
       ),
       body: ListView.separated(
         itemCount: messages.length,
@@ -36,13 +37,15 @@ class OutboxPage extends StatelessWidget {
             trailing: const Icon(Icons.keyboard_arrow_right),
             title: _title('${messages[index].title}',
                 const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
+            selected: messages[index].status ==
+                MessageStatus.SENT.formattedToString(),
             subtitle: Text(
-                'Do: ${messages[index].readersName} \nWysłano: ${messages[index].simpleDateFormat}'),
+                'From: ${messages[index].sendersName} \nDate: ${messages[index].simpleDateFormat}'),
             dense: true,
             onTap: () => {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const MessagesPage()),
+                MaterialPageRoute(builder: (context) =>  InboxMessageWidget(messageId: messages[index].id!)),
               ),
             },
           );

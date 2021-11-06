@@ -23,7 +23,7 @@ Map<String, dynamic> _$MessageToJson(Message instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'content': instance.content,
-      'date': instance.simpleDateFormat,
+      'date': instance.date,
       'simpleDateFormat': instance.simpleDateFormat,
       'status': instance.status,
       'sendersId': instance.sendersId,

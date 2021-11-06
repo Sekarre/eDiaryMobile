@@ -1,4 +1,4 @@
-import 'package:e_diary_mobile/messages/message_home.dart';
+import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -116,7 +116,7 @@ Widget message(BuildContext context) {
     onTap: () => {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const MessagesPage()),
+        MaterialPageRoute(builder: (context) => const MessageHomeWidget()),
       ),
     },
     child: Card(

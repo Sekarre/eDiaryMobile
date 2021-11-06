@@ -1,21 +1,30 @@
 
-import 'package:e_diary_mobile/messages/outbox.dart';
+import 'package:e_diary_mobile/messages/widgets/outbox.dart';
 import 'package:e_diary_mobile/model/message.dart';
 import 'package:e_diary_mobile/model/user.dart';
+import 'package:e_diary_mobile/shared/components/circular_indicator.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
+import 'package:e_diary_mobile/shared/components/no_data.dart';
+import 'package:e_diary_mobile/shared/error_messages.dart';
 import 'package:e_diary_mobile/shared/services/user_service.dart';
 import 'package:flutter/material.dart';
 
-import 'message_service.dart';
+import '../message_service.dart';
 
-class NewMessagePage extends StatefulWidget {
-  const NewMessagePage({Key? key}) : super(key: key);
+class NewMessageWidget extends StatefulWidget {
+
+  int? messageId;
+
+  NewMessageWidget({Key? key, this.messageId}) : super(key: key);
+  NewMessageWidget.messageIdOnly(this.messageId);
 
   @override
-  State<StatefulWidget> createState() => _NewMessagePageWidget();
+  State<StatefulWidget> createState() => _NewMessageWidget(messageId);
 }
 
-class _NewMessagePageWidget extends State<NewMessagePage> {
+class _NewMessageWidget extends State<NewMessageWidget> {
+
+  _NewMessageWidget(this.messageId);
 
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
@@ -25,10 +34,14 @@ class _NewMessagePageWidget extends State<NewMessagePage> {
   List<DropdownMenuItem<User>> _dropdownItems = [];
   List<User> users = [];
 
+  int? messageId;
+  Message? messageToReply;
+
   @override
   void initState() {
     super.initState();
    _loadUsers();
+   _setMessageReaderIfPresent();
   }
 
   _loadUsers() async {
@@ -44,12 +57,23 @@ class _NewMessagePageWidget extends State<NewMessagePage> {
     });
   }
 
+  _setMessageReaderIfPresent() async {
+    if (messageId != null) {
+      messageToReply = await getInboxSingleMessage(messageId!);
+      setState(() {
+        removeUserFromDropdownList(users, messageToReply!.sendersId!);
+        _readersId.add(messageToReply!.sendersId!);
+        _readersController.text = _readersController.text + messageToReply!.sendersName! + ", ";
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_dropdownItems.isNotEmpty) {
       return newMessageForm(context);
     } else {
-      return const CircularProgressIndicator();
+      return NoDataWidget(NEW_MESSAGE_ERROR);
     }
   }
 
@@ -101,7 +125,7 @@ class _NewMessagePageWidget extends State<NewMessagePage> {
                 ),
                 onChanged: (User? reader) {
                   addReader(reader);
-                  removeReaderFromDropdownList(users, reader);
+                  removeUserFromDropdownList(users, reader!.id);
                 },
                 items: _dropdownItems,
               ),
@@ -112,7 +136,7 @@ class _NewMessagePageWidget extends State<NewMessagePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const OutboxPage()
+                              builder: (context) => const OutboxWidget()
                           )
                       );
                     } else if (result == false) {
@@ -144,9 +168,9 @@ class _NewMessagePageWidget extends State<NewMessagePage> {
     _readersController.text = _readersController.text + reader.name + ", ";
   }
 
-  removeReaderFromDropdownList(List<User> users, User? reader) {
+  removeUserFromDropdownList(List<User> users, int userId) {
     setState(() {
-      _dropdownItems.removeWhere((elem) => elem.value!.id == reader!.id);
+      _dropdownItems.removeWhere((elem) => elem.value!.id == userId);
     });
   }
 
