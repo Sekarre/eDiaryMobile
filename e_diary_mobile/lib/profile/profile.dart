@@ -31,8 +31,8 @@ class ProfilePage extends StatelessWidget {
 
   Padding buildPadding(BuildContext context, User data) {
     _nameController.text = data.name;
-    _usernameController.text = data.username;
-    _roleController.text = getRawRoleNames(data.roles);
+    _usernameController.text = data.username!;
+    _roleController.text = getRawRoleNames(data.roles!);
     if (data.address != null) {
       _addressController.text = data.address!.toRawAddress();
     }

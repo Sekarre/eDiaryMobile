@@ -29,12 +29,22 @@ Future<List<Message>> getOutboxMessages() async {
     HttpHeaders.acceptHeader: 'application/json; charset=UTF-8'
   });
 
-  print((jsonDecode(response.body) as List)
-      .map((data) => Message.fromJson(data))
-      .toList());
-
   return (jsonDecode(response.body) as List)
       .map((data) => Message.fromJson(data))
       .toList();
+}
+
+Future<bool> sendNewMessage(Message message) async {
+  String jwt = await jwtOrEmpty;
+
+  var res = await http.post(
+      SERVER_USER_SEND_MESSAGE,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: jwt
+      },
+      body: jsonEncode(message));
+
+  return res.statusCode == 200;
 }
 

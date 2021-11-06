@@ -1,3 +1,4 @@
+import 'package:e_diary_mobile/messages/new_message.dart';
 import 'package:e_diary_mobile/messages/outbox.dart';
 import 'package:flutter/material.dart';
 
@@ -48,7 +49,7 @@ Widget sendMessage(BuildContext context) {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => MyApp()
+              builder: (context) => NewMessagePage()
           )
       )
     },
@@ -59,7 +60,7 @@ Widget sendMessage(BuildContext context) {
         width: 200,
         child: const Center(
           child: Text(
-            'Send message',
+            'New message',
             style: TextStyle(
               fontSize: 20,
               color: Colors.white,

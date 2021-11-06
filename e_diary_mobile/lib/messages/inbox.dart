@@ -1,7 +1,7 @@
 import 'package:e_diary_mobile/messages/message_home.dart';
 import 'package:e_diary_mobile/model/message.dart';
 import 'package:e_diary_mobile/model/message_status.dart';
-import 'package:e_diary_mobile/shared/no_data.dart';
+import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:flutter/material.dart';
 
 import 'message_service.dart';

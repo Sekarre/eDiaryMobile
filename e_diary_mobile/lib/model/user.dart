@@ -9,9 +9,9 @@ class User {
   int id;
   String name;
   int messageNumber;
-  String username;
+  String? username;
   Address? address;
-  List<Role> roles;
+  List<Role>? roles;
 
   User(this.id, this.name, this.messageNumber, this.username, this.address, this.roles);
 

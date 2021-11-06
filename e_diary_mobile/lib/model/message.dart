@@ -7,6 +7,7 @@ class Message {
   int? id;
   String? title;
   String? content;
+  String? date;
   String? simpleDateFormat;
   String? status;
   int? sendersId;
@@ -15,7 +16,7 @@ class Message {
   List<int>? readersId;
 
 
-  Message(this.id, this.title, this.content, this.simpleDateFormat, this.status,
+  Message(this.id, this.title, this.content, this.date, this.simpleDateFormat, this.status,
       this.sendersId, this.sendersName, this.readersName, this.readersId);
 
   factory Message.fromJson(Map<String, dynamic> json) => _$MessageFromJson(json);
