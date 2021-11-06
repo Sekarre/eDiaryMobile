@@ -1,4 +1,5 @@
 import 'package:e_diary_mobile/auth/auth.dart';
+import 'package:e_diary_mobile/home/home.dart';
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/model/role_type.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
@@ -45,6 +46,7 @@ class NavDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
               )),
+          homeTile(context),
           profileTile(context),
           messagesTile(context),
           logoutTile(context),
@@ -66,6 +68,7 @@ class NavDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
               )),
+          homeTile(context),
           profileTile(context),
           messagesTile(context),
           createClassTile(context),
@@ -89,6 +92,7 @@ class NavDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
               )),
+          homeTile(context),
           profileTile(context),
           createClassTile(context),
           manageClassTile(context),
@@ -98,6 +102,21 @@ class NavDrawer extends StatelessWidget {
           logoutTile(context),
         ],
       ),
+    );
+  }
+
+  ListTile homeTile(BuildContext context) {
+    return ListTile(
+      leading: Icon(Icons.home),
+      title: Text('Home'),
+      onTap: () => {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => HomePage()
+            )
+        )
+      },
     );
   }
 
