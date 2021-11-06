@@ -1,3 +1,4 @@
+import 'package:e_diary_mobile/messages/outbox.dart';
 import 'package:flutter/material.dart';
 
 import '../auth/auth.dart';
@@ -58,7 +59,7 @@ Widget sendMessage(BuildContext context) {
         width: 200,
         child: const Center(
           child: Text(
-            'Send messages',
+            'Send message',
             style: TextStyle(
               fontSize: 20,
               color: Colors.white,
@@ -74,7 +75,14 @@ Widget sendMessage(BuildContext context) {
 Widget outbox(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
-    onTap: () => null,
+    onTap: () => {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const OutboxPage()
+          )
+      )
+    },
     child: Card(
       color: Colors.deepPurple,
       child: Container(

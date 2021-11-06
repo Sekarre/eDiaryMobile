@@ -16,6 +16,19 @@ Future<List<Message>> getInboxMessages() async {
     HttpHeaders.acceptHeader: 'application/json; charset=UTF-8'
   });
 
+  return (jsonDecode(response.body) as List)
+      .map((data) => Message.fromJson(data))
+      .toList();
+}
+
+Future<List<Message>> getOutboxMessages() async {
+  String jwt = await jwtOrEmpty;
+
+  Response response = await http.get(SERVER_USER_OUTBOX, headers: {
+    HttpHeaders.authorizationHeader: jwt,
+    HttpHeaders.acceptHeader: 'application/json; charset=UTF-8'
+  });
+
   print((jsonDecode(response.body) as List)
       .map((data) => Message.fromJson(data))
       .toList());
@@ -24,3 +37,4 @@ Future<List<Message>> getInboxMessages() async {
       .map((data) => Message.fromJson(data))
       .toList();
 }
+

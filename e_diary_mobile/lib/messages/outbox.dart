@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 
 import 'message_service.dart';
 
-class InboxPage extends StatelessWidget {
-  const InboxPage({Key? key}) : super(key: key);
+class OutboxPage extends StatelessWidget {
+  const OutboxPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: getInboxMessages(),
+        future: getOutboxMessages(),
         builder: (context, AsyncSnapshot<List<Message>> snapshot) {
           if (snapshot.hasData) {
             return inboxMessagesListView(context, snapshot.requireData);
@@ -25,7 +25,7 @@ class InboxPage extends StatelessWidget {
   Scaffold inboxMessagesListView(BuildContext context, List<Message> messages) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Inbox"),
+        title: const Text("Outbox"),
         actions: const <Widget>[],
       ),
       body: ListView.separated(
@@ -36,10 +36,8 @@ class InboxPage extends StatelessWidget {
             trailing: const Icon(Icons.keyboard_arrow_right),
             title: _title('${messages[index].title}',
                 const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
-            selected: messages[index].status ==
-                MessageStatus.SENT.formattedToString(),
             subtitle: Text(
-                'Od: ${messages[index].sendersName} \nOdebrano: ${messages[index].simpleDateFormat}'),
+                'Do: ${messages[index].readersName} \nWysłano: ${messages[index].simpleDateFormat}'),
             dense: true,
             onTap: () => {
               Navigator.pushReplacement(
