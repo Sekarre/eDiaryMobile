@@ -2,6 +2,7 @@ import 'package:e_diary_mobile/auth/auth.dart';
 import 'package:e_diary_mobile/home/home.dart';
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/model/role_type.dart';
+import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -49,6 +50,7 @@ class NavDrawer extends StatelessWidget {
           homeTile(context),
           profileTile(context),
           messagesTile(context),
+          noticesTile(context),
           logoutTile(context),
         ],
       ),
@@ -71,6 +73,7 @@ class NavDrawer extends StatelessWidget {
           homeTile(context),
           profileTile(context),
           messagesTile(context),
+          noticesTile(context),
           createClassTile(context),
           manageClassTile(context),
           logoutTile(context),
@@ -96,6 +99,7 @@ class NavDrawer extends StatelessWidget {
           profileTile(context),
           createClassTile(context),
           manageClassTile(context),
+          noticesTile(context),
           teacherReportTile(context),
           closeYearTile(context),
           lastYearTile(context),
@@ -143,6 +147,19 @@ class NavDrawer extends StatelessWidget {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const MessageHomeWidget()),
+        ),
+      },
+    );
+  }
+
+  ListTile noticesTile(BuildContext context) {
+    return ListTile(
+      leading: Icon(Icons.circle_notifications),
+      title: Text('Notices'),
+      onTap: () => {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const NoticeHome()),
         ),
       },
     );

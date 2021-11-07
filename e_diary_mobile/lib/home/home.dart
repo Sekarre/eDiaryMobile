@@ -1,4 +1,5 @@
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
+import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -142,7 +143,12 @@ Widget message(BuildContext context) {
 Widget notice(BuildContext context) {
   return InkWell(
     splashColor: Colors.amber,
-    onTap: () => null,
+    onTap: () => {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const NoticeHome()),
+      ),
+    },
     child: Card(
       color: Colors.amber,
       child: Container(

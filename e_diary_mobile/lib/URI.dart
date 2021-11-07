@@ -9,3 +9,5 @@ Uri SERVER_USER_PROFILE = Uri.parse("$SERVER_IP/user/profile");
 Uri SERVER_USER_INBOX = Uri.parse("$SERVER_IP/user/read-messages");
 Uri SERVER_USER_OUTBOX = Uri.parse("$SERVER_IP/user/send-messages");
 Uri SERVER_USER_SEND_MESSAGE = Uri.parse("$SERVER_IP/user/new-message");
+
+Uri SERVER_USER_NOTICES = Uri.parse("$SERVER_IP/user/notices");
