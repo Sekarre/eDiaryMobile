@@ -2,7 +2,6 @@
 import 'package:e_diary_mobile/messages/widgets/outbox.dart';
 import 'package:e_diary_mobile/model/message.dart';
 import 'package:e_diary_mobile/model/user.dart';
-import 'package:e_diary_mobile/shared/components/circular_indicator.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
 import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:e_diary_mobile/shared/error_messages.dart';
@@ -48,12 +47,7 @@ class _NewMessageWidget extends State<NewMessageWidget> {
     var result = await getAllUsers();
     setState(() {
       users = result;
-      _dropdownItems = users.map<DropdownMenuItem<User>>((User user) {
-        return DropdownMenuItem<User>(
-          value: user,
-          child: Text(user.name),
-        );
-      }).toList();
+      _dropdownItems = _mapUsersToDropdownItems();
     });
   }
 
@@ -105,8 +99,7 @@ class _NewMessageWidget extends State<NewMessageWidget> {
                     labelText: 'Readers',
                   suffixIcon: IconButton(
                     onPressed: () {
-                      _readersController.clear();
-                      _readersId.clear();
+                      _resetDropdown();
                     },
                     icon: Icon(Icons.clear),
                   ),
@@ -151,6 +144,23 @@ class _NewMessageWidget extends State<NewMessageWidget> {
     );
   }
 
+  void _resetDropdown() {
+    _readersController.clear();
+    _readersId.clear();
+    setState(() {
+      _dropdownItems = _mapUsersToDropdownItems();
+    });
+  }
+
+  List<DropdownMenuItem<User>> _mapUsersToDropdownItems() {
+    return users.map<DropdownMenuItem<User>>((User user) {
+      return DropdownMenuItem<User>(
+        value: user,
+        child: Text(user.name),
+      );
+    }).toList();
+  }
+
   Future<bool> createAndSendMessage() async {
     var title = _titleController.text;
     var content = _contentController.text;
@@ -177,7 +187,6 @@ class _NewMessageWidget extends State<NewMessageWidget> {
   _clearText() {
     _titleController.text = '';
     _contentController.text = '';
-    _readersController.text = '';
-    _readersId.clear();
+    _resetDropdown();
   }
 }

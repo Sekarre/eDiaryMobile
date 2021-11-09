@@ -7,7 +7,7 @@ import 'auth/login.dart';
 
 final storage = FlutterSecureStorage();
 
-void main() {
+Future<void> main() async {
   runApp(MyApp());
 }
 

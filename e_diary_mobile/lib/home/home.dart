@@ -1,5 +1,6 @@
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
+import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -220,7 +221,12 @@ Widget manageClass(BuildContext context) {
 Widget teacherReport(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
-    onTap: () => null,
+    onTap: () => {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => TeacherReportWidget()),
+      ),
+    },
     child: Card(
       color: Colors.deepPurple,
       child: Container(
