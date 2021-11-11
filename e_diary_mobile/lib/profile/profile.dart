@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-  @override
+  /*@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -26,6 +26,44 @@ class ProfilePage extends StatelessWidget {
           builder: (context, snapshot) {
             return buildPadding(context, snapshot.requireData);
           }),
+    );
+  }*/
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF8E24AA),
+            Color(0xFFAB47BC),
+            Color(0xFFCE93D8),
+            Color(0xFFF3E5F5),
+          ],
+          stops: [0.1, 0.4, 0.7, 0.9],
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+            title: Text("Profile"),
+            actions: <Widget>[],
+            backgroundColor: Color(0xFFAB47BC),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(25.0),
+                )
+            )
+        ),
+        body: FutureBuilder<User>(
+          future: getProfile(),
+          builder: (context, snapshot) {
+          return buildPadding(context, snapshot.requireData);
+        }),
+        ),
     );
   }
 
