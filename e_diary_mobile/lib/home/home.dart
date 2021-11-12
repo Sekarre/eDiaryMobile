@@ -1,11 +1,12 @@
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
+import 'package:e_diary_mobile/messages/message_home.dart';
+import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../auth/auth.dart';
-import '../main.dart';
 import '../model/role_type.dart';
 import '../navbar/nav_drawer.dart';
 
@@ -15,12 +16,34 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF8E24AA),
+            Color(0xFFAB47BC),
+            Color(0xFFCE93D8),
+            Color(0xFFF3E5F5),
+          ],
+          stops: [0.1, 0.3, 0.5, 0.9],
+        ),
+      ),
+      child: Scaffold(
+      backgroundColor: Colors.transparent,
       drawer: NavDrawer(),
       appBar: AppBar(
         title: Text("Main"),
-        actions: <Widget>[
-        ],
+        actions: <Widget>[],
+        backgroundColor: Color(0xFFAB47BC),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(25.0),
+          )
+        )
       ),
       body: FutureBuilder<String>(
         future: rolesOrEmpty,
@@ -39,6 +62,22 @@ class HomePage extends StatelessWidget {
           return Text("If no data");
         },
       ),
+      floatingActionButton:
+      FloatingActionButton(child: Icon(Icons.person), onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => ProfilePage()
+            )
+          );
+      },
+        backgroundColor: const Color(0xFFAB47BC), hoverElevation: 1.5, elevation: 1.5,
+        shape: StadiumBorder(
+            side: BorderSide(
+                color: Color(0xFF8E24AA), width: 5)), ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      ),
     );
   }
 
@@ -56,6 +95,10 @@ class UserMenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(15),
+      crossAxisSpacing: 15,
+      mainAxisSpacing: 15,
       crossAxisCount: 2,
       children: <Widget>[
         // user
@@ -74,6 +117,10 @@ class DeputyMenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(15),
+      crossAxisSpacing: 15,
+      mainAxisSpacing: 15,
       crossAxisCount: 2,
       children: <Widget>[
         // user
@@ -95,6 +142,10 @@ class HeadmasterMenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(15),
+      crossAxisSpacing: 15,
+      mainAxisSpacing: 15,
       crossAxisCount: 2,
       children: <Widget>[
         // user
@@ -122,6 +173,13 @@ Widget message(BuildContext context) {
       ),
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.amberAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.amber,
       child: Container(
         height: 200,
@@ -151,11 +209,18 @@ Widget notice(BuildContext context) {
       ),
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.amberAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.amber,
       child: Container(
         height: 200,
         width: 200,
-        child: Center(
+        child: const Center(
           child: Text(
             'Notice',
             style: TextStyle(
@@ -175,13 +240,20 @@ Widget createClass(BuildContext context) {
     splashColor: Colors.deepPurple,
     onTap: () => null,
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
         width: 200,
-        child: Center(
+        child: const Center(
           child: Text(
-            'Create class',
+            'Create Class',
             style: TextStyle(
               fontSize: 20,
               color: Colors.white,
@@ -199,21 +271,28 @@ Widget manageClass(BuildContext context) {
     splashColor: Colors.deepPurple,
     onTap: () => null,
     child: Card(
-      color: Colors.deepPurple,
-      child: Container(
-        height: 200,
-        width: 200,
-        child: Center(
-          child: Text(
-            'Manage class',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
+        color: Colors.deepPurple,
+        child: Container(
+          height: 200,
+          width: 200,
+          child: const Center(
+            child: Text(
+              'Manage class',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ),
-      ),
     ),
   );
 }
@@ -228,11 +307,18 @@ Widget teacherReport(BuildContext context) {
       ),
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
         width: 200,
-        child: Center(
+        child: const Center(
           child: Text(
             'Teacher report',
             style: TextStyle(
@@ -252,11 +338,18 @@ Widget closeYear(BuildContext context) {
     splashColor: Colors.deepPurple,
     onTap: () => null,
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
         width: 200,
-        child: Center(
+        child: const Center(
           child: Text(
             'Close year',
             style: TextStyle(
@@ -276,11 +369,18 @@ Widget lastYear(BuildContext context) {
     splashColor: Colors.deepPurple,
     onTap: () => null,
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
         width: 200,
-        child: Center(
+        child: const Center(
           child: Text(
             'Last year',
             style: TextStyle(

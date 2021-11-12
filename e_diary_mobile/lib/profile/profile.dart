@@ -3,6 +3,7 @@ import 'package:e_diary_mobile/model/role.dart';
 import 'package:e_diary_mobile/model/user.dart';
 import 'package:e_diary_mobile/profile/profile_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -15,7 +16,7 @@ class ProfilePage extends StatelessWidget {
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-  @override
+  /*@override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -26,6 +27,44 @@ class ProfilePage extends StatelessWidget {
           builder: (context, snapshot) {
             return buildPadding(context, snapshot.requireData);
           }),
+    );
+  }*/
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF8E24AA),
+            Color(0xFFAB47BC),
+            Color(0xFFCE93D8),
+            Color(0xFFF3E5F5),
+          ],
+          stops: [0.1, 0.4, 0.7, 0.9],
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+            title: Text("Profile"),
+            actions: <Widget>[],
+            backgroundColor: Color(0xFFAB47BC),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(25.0),
+                )
+            )
+        ),
+        body: FutureBuilder<User>(
+          future: getProfile(),
+          builder: (context, snapshot) {
+          return buildPadding(context, snapshot.requireData);
+        }),
+        ),
     );
   }
 
@@ -38,7 +77,7 @@ class ProfilePage extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
           TextField(
@@ -70,6 +109,15 @@ class ProfilePage extends StatelessWidget {
               _openPopup(context);
             },
             child: Text('Change password'),
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFFAB47BC),
+              shape: StadiumBorder(
+                 side: BorderSide(
+                  color: Color(0xFF8E24AA), width: 1)),
+              textStyle: TextStyle(
+                fontWeight: FontWeight.bold
+              )
+            ),
           )
         ],
       ),
@@ -78,6 +126,7 @@ class ProfilePage extends StatelessWidget {
 
   _openPopup(context) {
     Alert(
+        style: customStyle,
         context: context,
         title: "LOGIN",
         content: Column(
@@ -123,13 +172,35 @@ class ProfilePage extends StatelessWidget {
                 displayDialog(context, "An Error Occurred", "Confirm password does not match NEW password");
               }
             },
+            color: Color(0xFFAB47BC),
+            border: Border.all(color: Color(0xFF8E24AA), width: 2.0, style: BorderStyle.solid),
             child: Text(
               "Change",
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
             ),
           )
         ]).show();
   }
+
+  var customStyle = AlertStyle(
+    animationType: AnimationType.fromTop,
+    isCloseButton: false,
+    isOverlayTapDismiss: false,
+    descStyle: TextStyle(fontWeight: FontWeight.bold),
+    descTextAlign: TextAlign.start,
+    backgroundColor: Color(0xFFF3E5F5),
+    animationDuration: Duration(milliseconds: 300),
+    alertBorder: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(15.0),
+      side: BorderSide(
+        color: Color(0xFFCE93D8),
+      ),
+    ),
+    titleStyle: TextStyle(
+      color: Colors.black,
+    ),
+    alertAlignment: Alignment.center,
+  );
 
   bool onChangePassword() {
     String oldPassword = _oldPasswordController.text;
