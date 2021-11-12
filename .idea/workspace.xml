@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30d7509b-0406-42db-aba7-192e9683c1db" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/eDiaryMobile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eDiaryMobile.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/e_diary_mobile/lib/auth/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/e_diary_mobile/lib/auth/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e_diary_mobile/lib/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/e_diary_mobile/lib/home/home.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/e_diary_mobile/lib/profile/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/e_diary_mobile/lib/profile/profile.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +49,7 @@
       <workItem from="1636535466545" duration="569000" />
       <workItem from="1636653192294" duration="159000" />
       <workItem from="1636653364495" duration="11664000" />
+      <workItem from="1636739588767" duration="3257000" />
     </task>
     <servers />
   </component>
@@ -69,6 +66,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

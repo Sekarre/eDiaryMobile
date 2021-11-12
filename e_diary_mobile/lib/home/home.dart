@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
             Color(0xFFCE93D8),
             Color(0xFFF3E5F5),
           ],
-          stops: [0.1, 0.4, 0.7, 0.9],
+          stops: [0.1, 0.3, 0.5, 0.9],
         ),
       ),
       child: Scaffold(
@@ -173,7 +173,7 @@ Widget message(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.purple,
+          color: Colors.amberAccent,
           width: 2.0,
         ),
       ),
@@ -204,7 +204,7 @@ Widget notice(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.purple,
+          color: Colors.amberAccent,
           width: 2.0,
         ),
       ),
@@ -235,7 +235,7 @@ Widget createClass(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.purple,
+          color: Colors.deepPurpleAccent,
           width: 2.0,
         ),
       ),
@@ -266,7 +266,7 @@ Widget manageClass(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.purple,
+          color: Colors.deepPurpleAccent,
           width: 2.0,
         ),
       ),
@@ -297,7 +297,7 @@ Widget teacherReport(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.purple,
+          color: Colors.deepPurpleAccent,
           width: 2.0,
         ),
       ),
@@ -328,7 +328,7 @@ Widget closeYear(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.purple,
+          color: Colors.deepPurpleAccent,
           width: 2.0,
         ),
       ),
@@ -359,7 +359,7 @@ Widget lastYear(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.purple,
+          color: Colors.deepPurpleAccent,
           width: 2.0,
         ),
       ),
