@@ -1,5 +1,6 @@
 import 'package:e_diary_mobile/messages/widgets/new_message.dart';
 import 'package:e_diary_mobile/messages/widgets/outbox.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:flutter/material.dart';
 
 import '../../auth/auth.dart';
@@ -12,17 +13,20 @@ class MessageHomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: NavDrawer(),
-      appBar: AppBar(
-        title: Text("Messages"),
-        actions: <Widget>[],
-      ),
-      body: FutureBuilder<String>(
-        future: rolesOrEmpty,
-        builder: (context, snapshot) {
-          return const MessagesWidget();
-        },
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: buildBoxDecoration(),
+      child: Scaffold(
+        drawer: NavDrawer(),
+        backgroundColor: Colors.transparent,
+        appBar: buildAppBar("Messages"),
+        body: FutureBuilder<String>(
+          future: rolesOrEmpty,
+          builder: (context, snapshot) {
+            return const MessagesWidget();
+          },
+        ),
       ),
     );
   }

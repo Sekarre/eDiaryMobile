@@ -14,3 +14,4 @@ Uri SERVER_USER_NOTICES = Uri.parse("$SERVER_IP/user/notices");
 
 Uri SERVER_HEADMASTER_TEACHER = Uri.parse("$SERVER_IP/headmaster/teacher-report/teachers");
 Uri SERVER_HEADMASTER_TEACHER_REPORT = Uri.parse("$SERVER_IP/headmaster/teacher-report");
+Uri SERVER_HEADMASTER_CLOSE_YEAR = Uri.parse("$SERVER_IP/headmaster/year-closing");

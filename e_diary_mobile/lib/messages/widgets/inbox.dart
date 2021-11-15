@@ -1,6 +1,7 @@
 import 'package:e_diary_mobile/messages/widgets/inbox_message.dart';
 import 'package:e_diary_mobile/model/message.dart';
 import 'package:e_diary_mobile/model/message_status.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:e_diary_mobile/shared/error_messages.dart';
 import 'package:flutter/material.dart';
@@ -23,36 +24,39 @@ class InboxWidget extends StatelessWidget {
         });
   }
 
-  Scaffold inboxMessagesListView(BuildContext context, List<Message> messages) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Inbox"),
-        actions:  <Widget>[],
-      ),
-      body: ListView.separated(
-        itemCount: messages.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            leading: const Icon(Icons.message, size: 30.0),
-            trailing: const Icon(Icons.keyboard_arrow_right),
-            title: _title('${messages[index].title}',
-                const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
-            selected: messages[index].status ==
-                MessageStatus.SENT.formattedToString(),
-            subtitle: Text(
-                'From: ${messages[index].sendersName} \nDate: ${messages[index].simpleDateFormat}'),
-            dense: true,
-            onTap: () => {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) =>  InboxMessageWidget(messageId: messages[index].id!)),
-              ),
-            },
-          );
-        },
-        separatorBuilder: (context, index) {
-          return const Divider();
-        },
+  Container inboxMessagesListView(BuildContext context, List<Message> messages) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: buildBoxDecoration(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: buildAppBar("Inbox"),
+        body: ListView.separated(
+          itemCount: messages.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: const Icon(Icons.message, size: 30.0),
+              trailing: const Icon(Icons.keyboard_arrow_right),
+              title: _title('${messages[index].title}',
+                  const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
+              selected: messages[index].status ==
+                  MessageStatus.SENT.formattedToString(),
+              subtitle: Text(
+                  'From: ${messages[index].sendersName} \nDate: ${messages[index].simpleDateFormat}'),
+              dense: true,
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>  InboxMessageWidget(messageId: messages[index].id!)),
+                ),
+              },
+            );
+          },
+          separatorBuilder: (context, index) {
+            return const Divider();
+          },
+        ),
       ),
     );
   }

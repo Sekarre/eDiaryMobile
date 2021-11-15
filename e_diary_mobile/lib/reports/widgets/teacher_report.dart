@@ -1,6 +1,7 @@
 import 'package:e_diary_mobile/model/report_request.dart';
 import 'package:e_diary_mobile/model/teacher.dart';
 import 'package:e_diary_mobile/reports/report_service.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
 import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:e_diary_mobile/shared/error_messages.dart';
@@ -10,6 +11,7 @@ import 'package:intl/intl.dart';
 import 'package:open_file/open_file.dart';
 
 class TeacherReportWidget extends StatefulWidget {
+
   TeacherReportWidget({Key? key}) : super(key: key);
 
   @override
@@ -17,6 +19,7 @@ class TeacherReportWidget extends StatefulWidget {
 }
 
 class _TeacherReportWidget extends State<TeacherReportWidget> {
+
   _TeacherReportWidget();
 
   final TextEditingController _startTimeController = TextEditingController();
@@ -104,9 +107,14 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
     }
   }
 
-  Scaffold newTeacherReport(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text("Teacher report")),
+  Container newTeacherReport(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: buildBoxDecoration(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: buildAppBar("Teacher report"),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -157,7 +165,7 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
               DropdownButton<Teacher>(
                 hint: Text('To: '),
                 value: null,
-                icon: const Icon(Icons.arrow_downward),
+                icon: const Icon(Icons.arrow_drop_down),
                 iconSize: 24,
                 elevation: 16,
                 style: const TextStyle(color: Colors.deepPurple),
@@ -184,7 +192,9 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
                   child: Text("Generate"))
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   void _resetDropdown() {

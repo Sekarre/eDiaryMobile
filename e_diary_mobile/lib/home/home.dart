@@ -2,6 +2,8 @@ import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
+import 'package:e_diary_mobile/yearclosing/widgets/close_year.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -18,32 +20,11 @@ class HomePage extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xFF8E24AA),
-            Color(0xFFAB47BC),
-            Color(0xFFCE93D8),
-            Color(0xFFF3E5F5),
-          ],
-          stops: [0.1, 0.3, 0.5, 0.9],
-        ),
-      ),
+      decoration: buildBoxDecoration(),
       child: Scaffold(
       backgroundColor: Colors.transparent,
       drawer: NavDrawer(),
-      appBar: AppBar(
-        title: Text("Main"),
-        actions: <Widget>[],
-        backgroundColor: Color(0xFFAB47BC),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(25.0),
-          )
-        )
-      ),
+      appBar: buildAppBar("Home"),
       body: FutureBuilder<String>(
         future: rolesOrEmpty,
         builder: (context, snapshot) {
@@ -300,7 +281,7 @@ Widget teacherReport(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
     onTap: () => {
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => TeacherReportWidget()),
       ),
@@ -335,7 +316,12 @@ Widget teacherReport(BuildContext context) {
 Widget closeYear(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
-    onTap: () => null,
+    onTap: () => {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => CloseYearWidget()),
+      ),
+    },
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),

@@ -2,11 +2,14 @@ import 'package:e_diary_mobile/auth/auth.dart';
 import 'package:e_diary_mobile/model/role.dart';
 import 'package:e_diary_mobile/model/user.dart';
 import 'package:e_diary_mobile/profile/profile_service.dart';
+import 'package:e_diary_mobile/shared/components/error_popup.dart';
+import 'package:e_diary_mobile/shared/components/app_common_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class ProfilePage extends StatelessWidget {
+
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _roleController = TextEditingController();
@@ -16,19 +19,6 @@ class ProfilePage extends StatelessWidget {
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-  /*@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-      ),
-      body: FutureBuilder<User>(
-          future: getProfile(),
-          builder: (context, snapshot) {
-            return buildPadding(context, snapshot.requireData);
-          }),
-    );
-  }*/
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -126,7 +116,7 @@ class ProfilePage extends StatelessWidget {
 
   _openPopup(context) {
     Alert(
-        style: customStyle,
+        style: customAlertStyle,
         context: context,
         title: "LOGIN",
         content: Column(
@@ -166,10 +156,10 @@ class ProfilePage extends StatelessWidget {
                 if (change != null) {
                   Navigator.of(context, rootNavigator: true).pop();
                 } else {
-                  displayDialog(context, "An Error Occurred", "Wrong password");
+                  openPopup(context, "An Error Occurred", "Wrong password");
                 }
               } else {
-                displayDialog(context, "An Error Occurred", "Confirm password does not match NEW password");
+                openPopup(context, "An Error Occurred", "Confirm password does not match NEW password");
               }
             },
             color: Color(0xFFAB47BC),
@@ -182,25 +172,6 @@ class ProfilePage extends StatelessWidget {
         ]).show();
   }
 
-  var customStyle = AlertStyle(
-    animationType: AnimationType.fromTop,
-    isCloseButton: false,
-    isOverlayTapDismiss: false,
-    descStyle: TextStyle(fontWeight: FontWeight.bold),
-    descTextAlign: TextAlign.start,
-    backgroundColor: Color(0xFFF3E5F5),
-    animationDuration: Duration(milliseconds: 300),
-    alertBorder: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(15.0),
-      side: BorderSide(
-        color: Color(0xFFCE93D8),
-      ),
-    ),
-    titleStyle: TextStyle(
-      color: Colors.black,
-    ),
-    alertAlignment: Alignment.center,
-  );
 
   bool onChangePassword() {
     String oldPassword = _oldPasswordController.text;
@@ -217,12 +188,3 @@ class ProfilePage extends StatelessWidget {
     return true;
   }
 }
-
-void displayDialog(context, title, text) => showDialog(
-  context: context,
-  builder: (context) =>
-      AlertDialog(
-          title: Text(title),
-          content: Text(text)
-      ),
-);

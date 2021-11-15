@@ -2,6 +2,7 @@
 import 'package:e_diary_mobile/messages/widgets/outbox.dart';
 import 'package:e_diary_mobile/model/message.dart';
 import 'package:e_diary_mobile/model/user.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
 import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:e_diary_mobile/shared/error_messages.dart';
@@ -71,9 +72,14 @@ class _NewMessageWidget extends State<NewMessageWidget> {
     }
   }
 
-  Scaffold newMessageForm(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text("New message")),
+  Container newMessageForm(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: buildBoxDecoration(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: buildAppBar("New message"),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -96,7 +102,7 @@ class _NewMessageWidget extends State<NewMessageWidget> {
                 maxLines: null,
                 decoration: InputDecoration(
                   enabled: true,
-                    labelText: 'Readers',
+                  labelText: 'Readers',
                   suffixIcon: IconButton(
                     onPressed: () {
                       _resetDropdown();
@@ -108,7 +114,7 @@ class _NewMessageWidget extends State<NewMessageWidget> {
               DropdownButton<User>(
                 hint: Text('To: '),
                 value: null,
-                icon: const Icon(Icons.arrow_downward),
+                icon: const Icon(Icons.arrow_drop_down),
                 iconSize: 24,
                 elevation: 16,
                 style: const TextStyle(color: Colors.deepPurple),
@@ -140,7 +146,8 @@ class _NewMessageWidget extends State<NewMessageWidget> {
               )
             ],
           ),
-        )
+        ),
+      ),
     );
   }
 

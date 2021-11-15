@@ -5,6 +5,7 @@ import 'package:e_diary_mobile/model/role_type.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
+import 'package:e_diary_mobile/yearclosing/widgets/close_year.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -197,7 +198,7 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.picture_as_pdf),
       title: Text('Teacher report'),
       onTap: () => {
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => TeacherReportWidget()),
         ),
@@ -207,12 +208,12 @@ class NavDrawer extends StatelessWidget {
 
   ListTile closeYearTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.exit_to_app),
+      leading: Icon(Icons.assignment_late_outlined),
       title: Text('Close school year'),
       onTap: () => {
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MyApp()),
+          MaterialPageRoute(builder: (context) => CloseYearWidget()),
         ),
       },
     );

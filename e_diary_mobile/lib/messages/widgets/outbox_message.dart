@@ -1,4 +1,5 @@
 import 'package:e_diary_mobile/model/message.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:e_diary_mobile/shared/error_messages.dart';
 import 'package:flutter/material.dart';
@@ -35,30 +36,33 @@ class OutboxMessageWidget extends StatelessWidget {
     _senderController.text = snapshot.requireData.sendersName!;
   }
 
-  Scaffold outboxMessagesListView(BuildContext context, Message message) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(message.title!),
-        actions: const <Widget>[],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: <Widget>[
-            TextField(
-              controller: _titleController,
-              enabled: false,
-              maxLines: 1,
-              decoration: InputDecoration(labelText: "Title: "),
-            ),
-            TextField(
-              enabled: false,
-              minLines: 5,
-              maxLines: null,
-              controller: _contentController,
-              decoration: InputDecoration(labelText: message.content),
-            )
-          ],
+  Container outboxMessagesListView(BuildContext context, Message message) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: buildBoxDecoration(),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: buildAppBar(message.title!),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                controller: _titleController,
+                enabled: false,
+                maxLines: 1,
+                decoration: InputDecoration(labelText: "Title: "),
+              ),
+              TextField(
+                enabled: false,
+                minLines: 5,
+                maxLines: null,
+                controller: _contentController,
+                decoration: InputDecoration(labelText: message.content),
+              )
+            ],
+          ),
         ),
       ),
     );
