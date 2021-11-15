@@ -28,4 +28,8 @@ class Notice {
       return '';
     return content.toString();
   }
+
+  static Notice build(String title, String content) {
+    return Notice(null, title, content, null, null, null);
+  }
 }
