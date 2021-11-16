@@ -44,7 +44,7 @@ class ProfilePage extends StatelessWidget {
             Color(0xFFCE93D8),
             Color(0xFFF3E5F5),
           ],
-          stops: [0.1, 0.4, 0.7, 0.9],
+          stops: [0.1, 0.3, 0.5, 0.9],
         ),
       ),
       child: Scaffold(
@@ -81,28 +81,40 @@ class ProfilePage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _nameController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Name"),
+            decoration: InputDecoration(labelText: "Name:",
+              labelStyle: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+            ),
           ),
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             enabled: false,
             maxLines: null,
             controller: _usernameController,
-            decoration: InputDecoration(labelText: data.username),
+            decoration: InputDecoration(labelText: data.username+":",
+              labelStyle: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+            ),
           ),
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _roleController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Roles"),
+            decoration: InputDecoration(labelText: "Roles:",
+              labelStyle: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+            ),
           ),
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _addressController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Address"),
+            decoration: InputDecoration(labelText: "Address:",
+              labelStyle: new TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20.0),
+            ),
           ),
           ElevatedButton(
             onPressed: () {
