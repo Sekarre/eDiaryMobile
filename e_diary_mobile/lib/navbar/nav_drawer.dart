@@ -1,3 +1,5 @@
+
+
 import 'package:e_diary_mobile/auth/auth.dart';
 import 'package:e_diary_mobile/messages/message_home.dart';
 import 'package:e_diary_mobile/model/role_type.dart';
@@ -37,17 +39,37 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-              child: Text(
-                'User',
-                style: TextStyle(color: Colors.white, fontSize: 25),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple,
-              )),
-          profileTile(context),
-          messagesTile(context),
-          logoutTile(context),
+          new Container(
+            height: 200,
+            child: new DrawerHeader(
+                child: Text(
+                  'User',
+                  style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF8E24AA),
+                      Color(0xFFAB47BC),
+                      Color(0xFFCE93D8),
+                      Color(0xFFF3E5F5),
+                    ],
+                    stops: [0.1, 0.5, 0.9, 1.0],
+                  ),
+                )),),
+          new Container(
+            height: 480,
+            color: Color(0xFFF3E5F5),
+            child: new Column(
+              children: <Widget> [
+                profileTile(context),
+                messagesTile(context),
+                logoutTile(context),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -58,19 +80,39 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
-              child: Text(
-                'Deputy Head',
-                style: TextStyle(color: Colors.white, fontSize: 25),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.deepPurple,
-              )),
-          profileTile(context),
-          messagesTile(context),
-          createClassTile(context),
-          manageClassTile(context),
-          logoutTile(context),
+          new Container(
+            height: 200,
+            child: new DrawerHeader(
+                child: Text(
+                  'Deputy Head',
+                  style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF8E24AA),
+                      Color(0xFFAB47BC),
+                      Color(0xFFCE93D8),
+                      Color(0xFFF3E5F5),
+                    ],
+                    stops: [0.1, 0.5, 0.9, 1.0],
+                  ),
+                )),),
+          new Container(
+            height: 480,
+            color: Color(0xFFF3E5F5),
+            child: new Column(
+              children: <Widget> [
+                profileTile(context),
+                messagesTile(context),
+                createClassTile(context),
+                manageClassTile(context),
+                logoutTile(context),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -81,21 +123,41 @@ class NavDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const DrawerHeader(
+          new Container(
+            height: 200,
+            child: new DrawerHeader(
               child: Text(
                 'Headmaster',
-                style: TextStyle(color: Colors.white, fontSize: 25),
+                style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
               ),
               decoration: BoxDecoration(
-                color: Colors.deepPurple,
-              )),
-          profileTile(context),
-          createClassTile(context),
-          manageClassTile(context),
-          teacherReportTile(context),
-          closeYearTile(context),
-          lastYearTile(context),
-          logoutTile(context),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFF8E24AA),
+                    Color(0xFFAB47BC),
+                    Color(0xFFCE93D8),
+                    Color(0xFFF3E5F5),
+                  ],
+                  stops: [0.1, 0.5, 0.9, 1.0],
+                ),
+              )),),
+            new Container(
+              height: 480,
+              color: Color(0xFFF3E5F5),
+              child: new Column(
+                children: <Widget> [
+                  profileTile(context),
+                  createClassTile(context),
+                  manageClassTile(context),
+                  teacherReportTile(context),
+                  closeYearTile(context),
+                  lastYearTile(context),
+                  logoutTile(context),
+                ],
+              ),
+            ),
         ],
       ),
     );
