@@ -5,7 +5,8 @@ import 'package:e_diary_mobile/model/role_type.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
-import 'package:e_diary_mobile/yearclosing/widgets/close_year.dart';
+import 'package:e_diary_mobile/schoolyears/widgets/past_school_years.dart';
+import 'package:e_diary_mobile/schoolyears/widgets/school_year_close.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -213,7 +214,7 @@ class NavDrawer extends StatelessWidget {
       onTap: () => {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => CloseYearWidget()),
+          MaterialPageRoute(builder: (context) => SchoolYearCloseWidget()),
         ),
       },
     );
@@ -224,9 +225,9 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.exit_to_app),
       title: Text('Last years archive'),
       onTap: () => {
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MyApp()),
+          MaterialPageRoute(builder: (context) => PastSchoolYearsWidget()),
         ),
       },
     );

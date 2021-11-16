@@ -15,3 +15,7 @@ Uri SERVER_USER_NOTICES = Uri.parse("$SERVER_IP/user/notices");
 Uri SERVER_HEADMASTER_TEACHER = Uri.parse("$SERVER_IP/headmaster/teacher-report/teachers");
 Uri SERVER_HEADMASTER_TEACHER_REPORT = Uri.parse("$SERVER_IP/headmaster/teacher-report");
 Uri SERVER_HEADMASTER_CLOSE_YEAR = Uri.parse("$SERVER_IP/headmaster/year-closing");
+Uri SERVER_HEADMASTER_PAST_YEARS_REPORTS_STUDENTS = Uri.parse("$SERVER_IP/headmaster/end-year-reports/students");
+Uri SERVER_HEADMASTER_PAST_YEARS_REPORTS_TEACHERS = Uri.parse("$SERVER_IP/headmaster/end-year-reports/teachers");
+Uri SERVER_HEADMASTER_PAST_YEARS = Uri.parse("$SERVER_IP/headmaster/end-year-reports/years");
+Uri SERVER_HEADMASTER_PAST_YEARS_REPORTS = Uri.parse("$SERVER_IP/headmaster/end-year-reports");

@@ -1,0 +1,4 @@
+enum ReportType {
+  STUDENT,
+  TEACHER
+}

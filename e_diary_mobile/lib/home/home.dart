@@ -2,8 +2,9 @@ import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
+import 'package:e_diary_mobile/schoolyears/widgets/past_school_years.dart';
+import 'package:e_diary_mobile/schoolyears/widgets/school_year_close.dart';
 import 'package:e_diary_mobile/shared/components/app_common.dart';
-import 'package:e_diary_mobile/yearclosing/widgets/close_year.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -319,7 +320,7 @@ Widget closeYear(BuildContext context) {
     onTap: () => {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CloseYearWidget()),
+        MaterialPageRoute(builder: (context) => SchoolYearCloseWidget()),
       ),
     },
     child: Card(
@@ -352,7 +353,12 @@ Widget closeYear(BuildContext context) {
 Widget lastYear(BuildContext context) {
   return InkWell(
     splashColor: Colors.deepPurple,
-    onTap: () => null,
+    onTap: () => {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => PastSchoolYearsWidget()),
+      ),
+    },
     child: Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),

@@ -1,26 +1,23 @@
-import 'package:e_diary_mobile/auth/auth.dart';
-import 'package:e_diary_mobile/model/role.dart';
-import 'package:e_diary_mobile/model/user.dart';
-import 'package:e_diary_mobile/profile/profile_service.dart';
+import 'package:e_diary_mobile/shared/app_common_styles.dart';
 import 'package:e_diary_mobile/shared/components/app_common.dart';
-import 'package:e_diary_mobile/shared/components/circular_indicator.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
-import 'package:e_diary_mobile/shared/components/app_common_styles.dart';
-import 'package:e_diary_mobile/yearclosing/close_year_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-class CloseYearWidget extends StatefulWidget {
-  CloseYearWidget({Key? key}) : super(key: key);
+import '../school_year_service.dart';
+
+class SchoolYearCloseWidget extends StatefulWidget {
+  SchoolYearCloseWidget({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _CloseYearWidget();
+  State<StatefulWidget> createState() => _SchoolYearCloseWidget();
 }
 
-class _CloseYearWidget extends State<CloseYearWidget> {
+class _SchoolYearCloseWidget extends State<SchoolYearCloseWidget> {
 
   bool _isPerformingAction = false;
+  int currentYear = DateTime.now().year;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +42,7 @@ class _CloseYearWidget extends State<CloseYearWidget> {
             onPressed: _isPerformingAction ? null : () {
               _openPopup(context);
             },
-            child: _isPerformingAction ? CircularProgressIndicator() : Text('Close year'),
+            child: _isPerformingAction ? CircularProgressIndicator() : Text('Close school year'),
             style: elevatedButtonStyle,
           )
         ],
@@ -59,8 +56,8 @@ class _CloseYearWidget extends State<CloseYearWidget> {
         context: buildContext,
         title: "Close school year\n",
         content: Column(
-          children: const <Widget>[
-            Text('School Year will be close, all data will be archived in pdf files. \nAre you sure u want to close the year?'),
+          children: <Widget>[
+            Text('Current school year - $currentYear will be closed, data will be deleted and archived in pdf files. \nAre you sure u want to close the year?'),
           ],
         ),
         buttons: [
@@ -70,7 +67,7 @@ class _CloseYearWidget extends State<CloseYearWidget> {
                 _isPerformingAction = true;
               });
               Navigator.of(buildContext, rootNavigator: true).pop();
-              var result = await closeYear();
+              var result = await closeSchoolYear();
               if (result) {
                 setState(() {
                   _isPerformingAction = false;

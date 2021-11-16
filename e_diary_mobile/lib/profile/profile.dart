@@ -3,7 +3,7 @@ import 'package:e_diary_mobile/model/role.dart';
 import 'package:e_diary_mobile/model/user.dart';
 import 'package:e_diary_mobile/profile/profile_service.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
-import 'package:e_diary_mobile/shared/components/app_common_styles.dart';
+import 'package:e_diary_mobile/shared/app_common_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';

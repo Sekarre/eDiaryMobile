@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:downloads_path_provider_28/downloads_path_provider_28.dart';
 import 'package:e_diary_mobile/auth/auth.dart';
+import 'package:e_diary_mobile/model/end_year_report_request.dart';
 import 'package:e_diary_mobile/model/report_request.dart';
 import 'package:e_diary_mobile/model/teacher.dart';
 import 'package:e_diary_mobile/shared/randomize_util.dart';
@@ -37,6 +38,24 @@ Future<String?> generateTeachersReport(ReportRequest reportRequest) async {
       },
       body: jsonEncode(reportRequest));
 
+  return await saveFile(res);
+}
+
+Future<String?> generateEndYearReport(EndYearReportRequest endYearReportRequest) async {
+  String jwt = await jwtOrEmpty;
+
+  var res = await http.post(
+      SERVER_HEADMASTER_PAST_YEARS_REPORTS,
+      headers: {
+        HttpHeaders.authorizationHeader: jwt,
+        HttpHeaders.contentTypeHeader: 'application/json;charset=UTF-8'
+      },
+      body: jsonEncode(endYearReportRequest));
+
+  return await saveFile(res);
+}
+
+Future<String?> saveFile(http.Response res) async {
   if (res.statusCode != 200) {
     return null;
   }

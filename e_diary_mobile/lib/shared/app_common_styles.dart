@@ -27,3 +27,5 @@ var elevatedButtonStyle = ElevatedButton.styleFrom(
     primary: const Color(0xFFAB47BC),
     shape: const StadiumBorder(side: BorderSide(color: Color(0xFF8E24AA), width: 1)),
     textStyle: const TextStyle(fontWeight: FontWeight.bold));
+
+var optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);

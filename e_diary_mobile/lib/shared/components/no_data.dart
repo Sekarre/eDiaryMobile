@@ -57,6 +57,7 @@ class _NoDataWidget extends State<NoDataWidget> {
       padding: const EdgeInsets.all(8.0),
       child: Center(
         child: TextField(
+            enabled: false,
             controller: _infoController,
             style: const TextStyle(
               fontSize: 20,
