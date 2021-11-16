@@ -20,3 +20,18 @@ Future<List<Notice>> getNotices() async {
       .map((data) => Notice.fromJson(data))
       .toList();
 }
+
+Future<bool> addNotice(Notice notice) async {
+  String jwt = await jwtOrEmpty;
+
+
+  var res = await http.post(
+      SERVER_USER_NOTICES,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+        HttpHeaders.authorizationHeader: jwt
+      },
+      body: jsonEncode(notice));
+
+  return res.statusCode == 200;
+}
