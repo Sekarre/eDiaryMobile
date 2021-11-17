@@ -1,5 +1,6 @@
 
 import 'package:e_diary_mobile/model/notice.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class NewNoticeState extends State<NewNoticeWidget> {
 
   Scaffold NewNoticeForm(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("New notice")),
+        appBar: buildAppBar("New notice"),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(

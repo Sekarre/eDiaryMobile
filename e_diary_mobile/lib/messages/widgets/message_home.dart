@@ -40,6 +40,10 @@ class MessagesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(15),
+      crossAxisSpacing: 15,
+      mainAxisSpacing: 15,
       crossAxisCount: 2,
       children: <Widget>[inbox(context), outbox(context), sendMessage(context)],
     );
@@ -58,6 +62,13 @@ Widget sendMessage(BuildContext context) {
       )
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
@@ -89,6 +100,13 @@ Widget outbox(BuildContext context) {
       )
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
@@ -120,6 +138,13 @@ Widget inbox(BuildContext context) {
       )
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
@@ -138,3 +163,4 @@ Widget inbox(BuildContext context) {
     ),
   );
 }
+

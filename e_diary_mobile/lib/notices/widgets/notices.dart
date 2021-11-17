@@ -1,5 +1,6 @@
 import 'package:e_diary_mobile/model/notice.dart';
 import 'package:e_diary_mobile/notices/notice_service.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:e_diary_mobile/shared/error_messages.dart';
 import 'package:flutter/material.dart';
@@ -23,10 +24,7 @@ class NoticesWidget extends StatelessWidget {
 
   Scaffold noticesListView(BuildContext context, List<Notice> notices) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Notices"),
-        actions:  <Widget>[],
-      ),
+      appBar: buildAppBar("Notices"),
       body: ListView.separated(
         itemCount: notices.length,
         itemBuilder: (context, index) {
