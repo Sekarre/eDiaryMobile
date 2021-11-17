@@ -7,6 +7,7 @@ import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
 import 'package:e_diary_mobile/schoolyears/widgets/past_school_years.dart';
 import 'package:e_diary_mobile/schoolyears/widgets/school_year_close.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -49,19 +50,9 @@ class NavDrawer extends StatelessWidget {
                   'User',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF8E24AA),
-                      Color(0xFFAB47BC),
-                      Color(0xFFCE93D8),
-                      Color(0xFFF3E5F5),
-                    ],
-                    stops: [0.1, 0.5, 0.9, 1.0],
-                  ),
-                )),),
+                decoration: buildBoxDecoration(),
+            ),
+          ),
           new Container(
             height: 480,
             color: Color(0xFFF3E5F5),
@@ -91,19 +82,9 @@ class NavDrawer extends StatelessWidget {
                   'Deputy Head',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF8E24AA),
-                      Color(0xFFAB47BC),
-                      Color(0xFFCE93D8),
-                      Color(0xFFF3E5F5),
-                    ],
-                    stops: [0.1, 0.5, 0.9, 1.0],
-                  ),
-                )),),
+                decoration: buildBoxDecoration(),
+            ),
+          ),
           new Container(
             height: 480,
             color: Color(0xFFF3E5F5),
@@ -135,19 +116,9 @@ class NavDrawer extends StatelessWidget {
                   'Headmaster',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF8E24AA),
-                      Color(0xFFAB47BC),
-                      Color(0xFFCE93D8),
-                      Color(0xFFF3E5F5),
-                    ],
-                    stops: [0.1, 0.5, 0.9, 1.0],
-                  ),
-                )),),
+              decoration: buildBoxDecoration(),
+            ),
+          ),
           new Container(
             height: 480,
             color: Color(0xFFF3E5F5),

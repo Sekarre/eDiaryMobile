@@ -2,6 +2,7 @@ import 'package:e_diary_mobile/auth/auth.dart';
 import 'package:e_diary_mobile/model/role.dart';
 import 'package:e_diary_mobile/model/user.dart';
 import 'package:e_diary_mobile/profile/profile_service.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:e_diary_mobile/shared/components/error_popup.dart';
 import 'package:e_diary_mobile/shared/app_common_styles.dart';
 import 'package:flutter/material.dart';
@@ -24,31 +25,10 @@ class ProfilePage extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xFF8E24AA),
-            Color(0xFFAB47BC),
-            Color(0xFFCE93D8),
-            Color(0xFFF3E5F5),
-          ],
-          stops: [0.1, 0.4, 0.7, 0.9],
-        ),
-      ),
+      decoration: buildBoxDecoration(),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-            title: Text("Profile"),
-            actions: <Widget>[],
-            backgroundColor: Color(0xFFAB47BC),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(25.0),
-                )
-            )
-        ),
+        appBar: buildAppBar("Profile"),
         body: FutureBuilder<User>(
           future: getProfile(),
           builder: (context, snapshot) {
@@ -71,28 +51,40 @@ class ProfilePage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _nameController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Name"),
+            decoration: InputDecoration(labelText: "Name:",
+              labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
           ),
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             enabled: false,
             maxLines: null,
             controller: _usernameController,
-            decoration: InputDecoration(labelText: data.username),
+            decoration: InputDecoration(labelText: data.username,
+              labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
           ),
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _roleController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Roles"),
+            decoration: InputDecoration(labelText: "Roles:",
+              labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
           ),
           TextField(
+            style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _addressController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Address"),
+            decoration: InputDecoration(labelText: "Address:",
+              labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
           ),
           ElevatedButton(
             onPressed: () {

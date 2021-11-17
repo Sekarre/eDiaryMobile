@@ -12,7 +12,7 @@ BoxDecoration buildBoxDecoration() {
           Color(0xFFCE93D8),
           Color(0xFFF3E5F5),
         ],
-        stops: [0.1, 0.4, 0.7, 0.9]),
+        stops: [0.1, 0.3, 0.5, 0.9]),
   );
 }
 
