@@ -64,6 +64,7 @@ class NavDrawer extends StatelessWidget {
             color: Color(0xFFF3E5F5),
             child: new Column(
               children: <Widget> [
+                homeTile(context),
                 profileTile(context),
                 messagesTile(context),
                 logoutTile(context),
@@ -105,6 +106,7 @@ class NavDrawer extends StatelessWidget {
             color: Color(0xFFF3E5F5),
             child: new Column(
               children: <Widget> [
+                homeTile(context),
                 profileTile(context),
                 messagesTile(context),
                 createClassTile(context),
@@ -148,6 +150,7 @@ class NavDrawer extends StatelessWidget {
               color: Color(0xFFF3E5F5),
               child: new Column(
                 children: <Widget> [
+                  homeTile(context),
                   profileTile(context),
                   createClassTile(context),
                   manageClassTile(context),
@@ -160,6 +163,21 @@ class NavDrawer extends StatelessWidget {
             ),
         ],
       ),
+    );
+  }
+
+  ListTile homeTile(BuildContext context) {
+    return ListTile(
+      leading: Icon(Icons.airplay),
+      title: Text('Main menu'),
+      onTap: () => {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MyApp()
+            )
+        )
+      },
     );
   }
 
