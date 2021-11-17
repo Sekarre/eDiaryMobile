@@ -27,8 +27,14 @@ class InboxPage extends StatelessWidget {
   Scaffold inboxMessagesListView(BuildContext context, List<Message> messages) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Messages"),
-        actions: <Widget>[],
+          title: Text("Messages"),
+          actions: <Widget>[],
+          backgroundColor: Color(0xFFAB47BC),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(25.0),
+              )
+          )
       ),
       body: ListView.separated(
         itemCount: messages.length,

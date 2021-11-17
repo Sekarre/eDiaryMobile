@@ -16,19 +16,6 @@ class ProfilePage extends StatelessWidget {
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _confirmPasswordController = TextEditingController();
 
-  /*@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-      ),
-      body: FutureBuilder<User>(
-          future: getProfile(),
-          builder: (context, snapshot) {
-            return buildPadding(context, snapshot.requireData);
-          }),
-    );
-  }*/
   @override
   Widget build(BuildContext context) {
     return Container(

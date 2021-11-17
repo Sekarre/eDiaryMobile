@@ -10,17 +10,41 @@ class MessagesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color(0xFF8E24AA),
+            Color(0xFFAB47BC),
+            Color(0xFFCE93D8),
+            Color(0xFFF3E5F5),
+          ],
+          stops: [0.1, 0.3, 0.5, 0.9],
+        ),
+      ),
+      child: Scaffold(
+      backgroundColor: Colors.transparent,
       drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text("Messages"),
-        actions: <Widget>[],
+          title: Text("Messages"),
+          actions: <Widget>[],
+          backgroundColor: Color(0xFFAB47BC),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(25.0),
+              )
+          )
       ),
       body: FutureBuilder<String>(
         future: rolesOrEmpty,
         builder: (context, snapshot) {
           return const MessagesWidget();
         },
+      ),
       ),
     );
   }
@@ -34,6 +58,10 @@ class MessagesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      primary: false,
+      padding: const EdgeInsets.all(15),
+      crossAxisSpacing: 15,
+      mainAxisSpacing: 15,
       crossAxisCount: 2,
       children: <Widget>[inbox(context), outbox(context), sendMessage(context)],
     );
@@ -52,6 +80,13 @@ Widget sendMessage(BuildContext context) {
       )
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
@@ -76,6 +111,13 @@ Widget outbox(BuildContext context) {
     splashColor: Colors.deepPurple,
     onTap: () => null,
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
@@ -107,6 +149,13 @@ Widget inbox(BuildContext context) {
       )
     },
     child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.deepPurpleAccent,
+          width: 2.0,
+        ),
+      ),
       color: Colors.deepPurple,
       child: Container(
         height: 200,
