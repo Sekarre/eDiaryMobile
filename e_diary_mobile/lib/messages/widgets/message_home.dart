@@ -62,25 +62,40 @@ Widget sendMessage(BuildContext context) {
       )
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.deepPurple,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'New message',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "New Message",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -100,25 +115,40 @@ Widget outbox(BuildContext context) {
       )
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.deepPurple,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Outbox',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Outbox",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -138,25 +168,40 @@ Widget inbox(BuildContext context) {
       )
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.deepPurple,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Inbox',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Inbox",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),

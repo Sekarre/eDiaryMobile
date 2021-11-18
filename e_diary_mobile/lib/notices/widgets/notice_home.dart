@@ -59,24 +59,50 @@ Widget listNotices(BuildContext context) {
       )
     },
     child: Card(
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.amberAccent,
+          color: Colors.transparent,
           width: 2.0,
         ),
       ),
-      color: Colors.amber,
-      child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Notices',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
+      color: Colors.transparent,
+      child: Card(
+        elevation: 0,
+        color: Colors.transparent,
+        child: Container(
+          child: Center(
+            child: Column(
+              children: [
+                Center(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        BorderRadius.circular(100.0)),
+                    elevation: 5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Icon(
+                        Icons.verified_user,
+                        size: 50,
+                        color: Colors.amber,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      "Notices",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(),
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
         ),
@@ -97,24 +123,50 @@ Widget addNotices(BuildContext context) {
       )
     },
     child: Card(
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(35.0),
         side: BorderSide(
-          color: Colors.amberAccent,
+          color: Colors.transparent,
           width: 2.0,
         ),
       ),
-      color: Colors.amber,
-      child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Add notice',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
+      color: Colors.transparent,
+      child: Card(
+        elevation: 0,
+        color: Colors.transparent,
+        child: Container(
+          child: Center(
+            child: Column(
+              children: [
+                Center(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                        BorderRadius.circular(100.0)),
+                    elevation: 5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Icon(
+                        Icons.verified_user,
+                        size: 50,
+                        color: Colors.amber,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      "Add Notice",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(),
+                    ),
+                  ),
+                )
+              ],
             ),
           ),
         ),

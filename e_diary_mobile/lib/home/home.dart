@@ -147,7 +147,6 @@ class HeadmasterMenuWidget extends StatelessWidget {
 
 Widget message(BuildContext context) {
   return InkWell(
-    splashColor: Colors.amber,
     onTap: () => {
       Navigator.pushReplacement(
         context,
@@ -155,25 +154,40 @@ Widget message(BuildContext context) {
       ),
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.amberAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.amber,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Messages',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Messages",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -191,25 +205,40 @@ Widget noticeHome(BuildContext context) {
       ),
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.amberAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.amber,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Notice',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Notice",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -227,25 +256,40 @@ Widget notice(BuildContext context) {
       ),
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.amberAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.amber,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Notice',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Notice",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -258,25 +302,40 @@ Widget createClass(BuildContext context) {
     splashColor: Colors.deepPurple,
     onTap: () => null,
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.deepPurple,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Create Class',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Create Class",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -289,28 +348,43 @@ Widget manageClass(BuildContext context) {
     splashColor: Colors.deepPurple,
     onTap: () => null,
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-        color: Colors.deepPurple,
-        child: Container(
-          height: 200,
-          width: 200,
-          child: const Center(
-            child: Text(
-              'Manage class',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
+      elevation: 0,
+      color: Colors.transparent,
+      child: Container(
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Manage Class",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
+      ),
     ),
   );
 }
@@ -325,25 +399,40 @@ Widget teacherReport(BuildContext context) {
       ),
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.deepPurple,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Teacher report',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Teacher Report",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -361,25 +450,40 @@ Widget closeYear(BuildContext context) {
       ),
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.deepPurple,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Close year',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Close Year",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -397,25 +501,40 @@ Widget lastYear(BuildContext context) {
       ),
     },
     child: Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(35.0),
-        side: BorderSide(
-          color: Colors.deepPurpleAccent,
-          width: 2.0,
-        ),
-      ),
-      color: Colors.deepPurple,
+      elevation: 0,
+      color: Colors.transparent,
       child: Container(
-        height: 200,
-        width: 200,
-        child: const Center(
-          child: Text(
-            'Last year',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-            ),
+        child: Center(
+          child: Column(
+            children: [
+              Center(
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                      BorderRadius.circular(100.0)),
+                  elevation: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Icon(
+                      Icons.verified_user,
+                      size: 50,
+                      color: Colors.amber,
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    "Last Year",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
