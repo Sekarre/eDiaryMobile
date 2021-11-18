@@ -1,5 +1,6 @@
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
+import 'package:e_diary_mobile/notices/widgets/notices.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:e_diary_mobile/schoolyears/widgets/past_school_years.dart';
@@ -106,7 +107,7 @@ class DeputyMenuWidget extends StatelessWidget {
       children: <Widget>[
         // user
         message(context),
-        notice(context),
+        noticeHome(context),
         // deputy
         createClass(context),
         manageClass(context),
@@ -131,7 +132,7 @@ class HeadmasterMenuWidget extends StatelessWidget {
       children: <Widget>[
         // user
         message(context),
-        notice(context),
+        noticeHome(context),
         // deputy
         createClass(context),
         manageClass(context),
@@ -180,13 +181,49 @@ Widget message(BuildContext context) {
   );
 }
 
-Widget notice(BuildContext context) {
+Widget noticeHome(BuildContext context) {
   return InkWell(
     splashColor: Colors.amber,
     onTap: () => {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const NoticeHome()),
+      ),
+    },
+    child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(35.0),
+        side: BorderSide(
+          color: Colors.amberAccent,
+          width: 2.0,
+        ),
+      ),
+      color: Colors.amber,
+      child: Container(
+        height: 200,
+        width: 200,
+        child: const Center(
+          child: Text(
+            'Notice',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget notice(BuildContext context) {
+  return InkWell(
+    splashColor: Colors.amber,
+    onTap: () => {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const NoticesWidget()),
       ),
     },
     child: Card(

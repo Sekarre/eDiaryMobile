@@ -3,6 +3,7 @@ import 'package:e_diary_mobile/home/home.dart';
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/model/role_type.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
+import 'package:e_diary_mobile/notices/widgets/notices.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
 import 'package:e_diary_mobile/schoolyears/widgets/past_school_years.dart';
@@ -40,102 +41,91 @@ class NavDrawer extends StatelessWidget {
 
   Drawer drawDefaultSidebar(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          new Container(
-            height: 200,
-            child: new DrawerHeader(
+      child: new Container(
+        color: Color(0xFFF3E5F5),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            new Container(
+              height: 200,
+              child: new DrawerHeader(
                 child: Text(
                   'User',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
                 decoration: buildBoxDecoration(),
+              ),
             ),
-          ),
-          new Container(
-            height: 480,
-            color: Color(0xFFF3E5F5),
-            child: new Column(
-              children: <Widget> [
-                homeTile(context),
-                profileTile(context),
-                messagesTile(context),
-                logoutTile(context),
-              ],
-            ),
-          ),
-        ],
+            homeTile(context),
+            profileTile(context),
+            messagesTile(context),
+            noticesTile(context),
+            logoutTile(context),
+          ],
+        ),
       ),
     );
   }
 
   Drawer drawDeputyHeadSidebar(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          new Container(
-            height: 200,
-            child: new DrawerHeader(
+      child: new Container(
+        color: Color(0xFFF3E5F5),
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            new Container(
+              height: 200,
+              child: new DrawerHeader(
                 child: Text(
                   'Deputy Head',
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
                 decoration: buildBoxDecoration(),
+              ),
             ),
-          ),
-          new Container(
-            height: 480,
-            color: Color(0xFFF3E5F5),
-            child: new Column(
-              children: <Widget> [
-                homeTile(context),
-                profileTile(context),
-                messagesTile(context),
-                createClassTile(context),
-                manageClassTile(context),
-                logoutTile(context),
-              ],
-            ),
-          ),
-        ],
+            homeTile(context),
+            profileTile(context),
+            messagesTile(context),
+            noticesHomeTile(context),
+            createClassTile(context),
+            manageClassTile(context),
+            logoutTile(context),
+          ],
+        ),
       ),
     );
   }
 
   Drawer drawHeadmasterSidebar(BuildContext context) {
     return Drawer(
-      child: ListView(
+      child: new Container(
+        color: Color(0xFFF3E5F5),
+        child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           new Container(
             height: 200,
             child: new DrawerHeader(
-                child: Text(
-                  'Headmaster',
-                  style: TextStyle(color: Colors.white, fontSize: 25),
-                ),
+              child: Text(
+                'Headmaster',
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
               decoration: buildBoxDecoration(),
             ),
           ),
-          new Container(
-            height: 480,
-            color: Color(0xFFF3E5F5),
-            child: new Column(
-              children: <Widget> [
-                homeTile(context),
-                profileTile(context),
-                createClassTile(context),
-                manageClassTile(context),
-                teacherReportTile(context),
-                closeYearTile(context),
-                lastYearTile(context),
-                logoutTile(context),
-              ],
-            ),
-          ),
+          homeTile(context),
+          profileTile(context),
+          messagesTile(context),
+          noticesHomeTile(context),
+          createClassTile(context),
+          manageClassTile(context),
+          teacherReportTile(context),
+          closeYearTile(context),
+          lastYearTile(context),
+          logoutTile(context),
         ],
+      ),
       ),
     );
   }
@@ -183,7 +173,7 @@ class NavDrawer extends StatelessWidget {
     );
   }
 
-  ListTile noticesTile(BuildContext context) {
+  ListTile noticesHomeTile(BuildContext context) {
     return ListTile(
       leading: Icon(Icons.circle_notifications),
       title: Text('Notices'),
@@ -191,6 +181,19 @@ class NavDrawer extends StatelessWidget {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const NoticeHome()),
+        ),
+      },
+    );
+  }
+
+  ListTile noticesTile(BuildContext context) {
+    return ListTile(
+      leading: Icon(Icons.circle_notifications),
+      title: Text('Notices'),
+      onTap: () => {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const NoticesWidget()),
         ),
       },
     );
