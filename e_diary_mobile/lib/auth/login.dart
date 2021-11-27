@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:e_diary_mobile/home/home.dart';
 import 'package:e_diary_mobile/profile/profile_service.dart';
+import 'package:e_diary_mobile/shared/components/app_common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
@@ -48,10 +49,10 @@ class LoginPage extends StatelessWidget {
           Text(
             'Username',
             style: TextStyle(
-              fontSize: 20,
-              foreground: Paint()
-                ..style = PaintingStyle.fill
-                ..color = Colors.white,
+                fontSize: 20,
+                foreground: Paint()
+                  ..style = PaintingStyle.fill
+                  ..color = Colors.white,
                 fontWeight: FontWeight.bold
             ),
           ),
@@ -59,9 +60,9 @@ class LoginPage extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             decoration: BoxDecoration(
-              color: const Color(0xFFAB47BC),
+              color: const Color(0xFF303030),
               border: Border.all(
-                color: Colors.purple,
+                color: Color(0xFF2E7D32),
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(25),
@@ -94,10 +95,10 @@ class LoginPage extends StatelessWidget {
           Text(
             'Password',
             style: TextStyle(
-              fontSize: 20,
-              foreground: Paint()
-                ..style = PaintingStyle.fill
-                ..color = Colors.white,
+                fontSize: 20,
+                foreground: Paint()
+                  ..style = PaintingStyle.fill
+                  ..color = Colors.white,
                 fontWeight: FontWeight.bold
             ),
           ),
@@ -105,9 +106,9 @@ class LoginPage extends StatelessWidget {
           Container(
             alignment: Alignment.centerLeft,
             decoration: BoxDecoration(
-              color: const Color(0xFFAB47BC),
+              color: const Color(0xFF303030),
               border: Border.all(
-                color: Colors.purple,
+                color: Color(0xFF2E7D32),
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(25),
@@ -142,19 +143,7 @@ class LoginPage extends StatelessWidget {
           Container(
             height: double.infinity,
             width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color(0xFF8E24AA),
-                  Color(0xFFAB47BC),
-                  Color(0xFFCE93D8),
-                  Color(0xFFF3E5F5),
-                ],
-                  stops: [0.1, 0.4, 0.7, 0.9],
-              ),
-            ),
+            decoration: buildBoxDecoration(),
           ),
           Container(
             height: double.infinity,
@@ -200,7 +189,7 @@ class LoginPage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
-                    color: Colors.purple,
+                    color: Color(0xFF2E7D32),
                     child: Text(
                       'Log in',
                       style: TextStyle(

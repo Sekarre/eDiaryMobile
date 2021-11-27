@@ -17,7 +17,7 @@ class NoticeHome extends StatelessWidget {
       decoration: buildBoxDecoration(),
       child: Scaffold(
       drawer: NavDrawer(),
-        appBar: buildAppBar("Notices"),
+      appBar: buildAppBar("Notices"),
       body: FutureBuilder<String>(
         future: rolesOrEmpty,
         builder: (context, snapshot) {

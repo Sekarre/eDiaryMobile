@@ -78,49 +78,88 @@ class _NewMessageWidget extends State<NewMessageWidget> {
       width: double.infinity,
       decoration: buildBoxDecoration(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         appBar: buildAppBar("New message"),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
+              const SizedBox(
+                height: 20,
+              ),
               TextField(
+                style: TextStyle(color: Colors.white),
+                cursorColor: Color(0xFF2E7D32),
                 controller: _titleController,
                 decoration: const InputDecoration(
-                    labelText: 'Title'
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                      //borderRadius: new BorderRadius.circular(30.0)
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                      //borderRadius: new BorderRadius.circular(30.0)
+                  ),
+                  labelText: 'Title',
+                  labelStyle: TextStyle(color: Colors.white),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               TextField(
+                style: TextStyle(color: Colors.white),
+                cursorColor: Color(0xFF2E7D32),
                 controller: _contentController,
                 decoration: const InputDecoration(
-                    labelText: 'Content'
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                    labelText: 'Content',
+                    labelStyle: TextStyle(color: Colors.white),
                 ),
               ),
+              const SizedBox(
+                height: 20,
+              ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 controller: _readersController,
                 readOnly: true,
                 maxLines: null,
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
                   enabled: true,
                   labelText: 'Readers',
+                  labelStyle: TextStyle(color: Colors.white),
                   suffixIcon: IconButton(
                     onPressed: () {
                       _resetDropdown();
                     },
-                    icon: Icon(Icons.clear),
+                    icon: Icon(Icons.clear,color: Color(0xFF2E7D32),),
                   ),
                 ),
               ),
               DropdownButton<User>(
-                hint: Text('To: '),
+                hint: Text('To: ', style: TextStyle(color: Colors.white)),
                 value: null,
-                icon: const Icon(Icons.arrow_drop_down),
+                icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                 iconSize: 24,
                 elevation: 16,
-                style: const TextStyle(color: Colors.deepPurple),
+                dropdownColor: Color(0xFF424242),
+                style: const TextStyle(color: Colors.white, fontSize: 20),
                 underline: Container(
                   height: 2,
-                  color: Colors.deepPurpleAccent,
+                  color: Color(0xFF2E7D32),
                 ),
                 onChanged: (User? reader) {
                   addReader(reader);
@@ -128,7 +167,11 @@ class _NewMessageWidget extends State<NewMessageWidget> {
                 },
                 items: _dropdownItems,
               ),
-              TextButton(
+              Container(
+                padding: EdgeInsets.symmetric(vertical:25.0),
+                width: double.infinity,
+                child: RaisedButton(
+                  elevation: 5.0,
                   onPressed: () async {
                     var result = await createAndSendMessage();
                     if (result == true) {
@@ -142,8 +185,22 @@ class _NewMessageWidget extends State<NewMessageWidget> {
                       openPopup(context, 'Error while sending message', 'Try later');
                     }
                   },
-                  child: Text("Send")
-              )
+                  padding: EdgeInsets.all(15.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  color: Color(0xFF2E7D32),
+                  child: Text(
+                    'Send',
+                    style: TextStyle(
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

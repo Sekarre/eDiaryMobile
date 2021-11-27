@@ -54,10 +54,10 @@ class HomePage extends StatelessWidget {
             )
           );
       },
-        backgroundColor: const Color(0xFFAB47BC), hoverElevation: 1.5, elevation: 1.5,
+        backgroundColor: const Color(0xFF303030), hoverElevation: 1.5, elevation: 1.5,
         shape: StadiumBorder(
             side: BorderSide(
-                color: Color(0xFF8E24AA), width: 5)), ),
+                color: Color(0xFF212121), width: 5)), ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       ),
@@ -148,6 +148,7 @@ class HeadmasterMenuWidget extends StatelessWidget {
 
 Widget message(BuildContext context) {
   return InkWell(
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.pushReplacement(
         context,
@@ -165,14 +166,15 @@ Widget message(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.verified_user,
+                      Icons.email,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -184,7 +186,10 @@ Widget message(BuildContext context) {
                   child: Text(
                     "Messages",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -198,7 +203,7 @@ Widget message(BuildContext context) {
 
 Widget noticeHome(BuildContext context) {
   return InkWell(
-    splashColor: Colors.amber,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.pushReplacement(
         context,
@@ -216,14 +221,15 @@ Widget noticeHome(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.verified_user,
+                      Icons.circle_notifications,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -235,7 +241,10 @@ Widget noticeHome(BuildContext context) {
                   child: Text(
                     "Notice",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -249,7 +258,7 @@ Widget noticeHome(BuildContext context) {
 
 Widget notice(BuildContext context) {
   return InkWell(
-    splashColor: Colors.amber,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.pushReplacement(
         context,
@@ -267,14 +276,15 @@ Widget notice(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.verified_user,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -286,7 +296,10 @@ Widget notice(BuildContext context) {
                   child: Text(
                     "Notice",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -300,7 +313,7 @@ Widget notice(BuildContext context) {
 
 Widget createClass(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.pushReplacement(
         context,
@@ -318,14 +331,15 @@ Widget createClass(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.verified_user,
+                      Icons.create,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -337,7 +351,10 @@ Widget createClass(BuildContext context) {
                   child: Text(
                     "Create Class",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -351,7 +368,7 @@ Widget createClass(BuildContext context) {
 
 Widget manageClass(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => null,
     child: Card(
       elevation: 0,
@@ -364,14 +381,15 @@ Widget manageClass(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.verified_user,
+                      Icons.article,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -383,7 +401,10 @@ Widget manageClass(BuildContext context) {
                   child: Text(
                     "Manage Class",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -397,7 +418,7 @@ Widget manageClass(BuildContext context) {
 
 Widget teacherReport(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
         context,
@@ -415,14 +436,15 @@ Widget teacherReport(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.verified_user,
+                      Icons.picture_as_pdf,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -434,7 +456,10 @@ Widget teacherReport(BuildContext context) {
                   child: Text(
                     "Teacher Report",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -448,7 +473,7 @@ Widget teacherReport(BuildContext context) {
 
 Widget closeYear(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
         context,
@@ -466,14 +491,15 @@ Widget closeYear(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
-                      Icons.verified_user,
+                      Icons.assignment_late,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -485,7 +511,10 @@ Widget closeYear(BuildContext context) {
                   child: Text(
                     "Close Year",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -499,7 +528,7 @@ Widget closeYear(BuildContext context) {
 
 Widget lastYear(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
         context,
@@ -517,14 +546,15 @@ Widget lastYear(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.verified_user,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -536,7 +566,10 @@ Widget lastYear(BuildContext context) {
                   child: Text(
                     "Last Year",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
                   ),
                 ),
               )

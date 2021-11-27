@@ -49,36 +49,84 @@ class InboxMessageWidget extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
+              const SizedBox(
+                height: 20,
+              ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 controller: _titleController,
                 enabled: false,
                 maxLines: 1,
-                decoration: InputDecoration(labelText: "Title: "),
+                decoration: InputDecoration(
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  labelText: "Title: ",
+                  labelStyle: TextStyle(color: Colors.white)
+                ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 enabled: false,
                 minLines: 5,
                 maxLines: null,
                 controller: _contentController,
-                decoration: InputDecoration(labelText: message.content),
+                decoration: InputDecoration(
+                    disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                    ),
+                  labelText: "Content: ",
+                  labelStyle: TextStyle(color: Colors.white)
+                ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 controller: _senderController,
                 enabled: false,
                 maxLines: 1,
                 decoration: InputDecoration(
-                    labelText: "Send by: " + message.sendersName!),
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  labelText: "Send by: " + message.sendersName!,
+                  labelStyle: TextStyle(color: Colors.white),
+                ),
               ),
-              ElevatedButton(
-                onPressed: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              NewMessageWidget.messageIdOnly(messageId)))
-                },
-                child: Text('Reply'),
-              )
+              Container(
+                padding: EdgeInsets.symmetric(vertical:25.0),
+                width: double.infinity,
+                child: RaisedButton(
+                  elevation: 5.0,
+                  onPressed: () => {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                NewMessageWidget.messageIdOnly(messageId)))
+                  },
+                  padding: EdgeInsets.all(15.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  color: Color(0xFF2E7D32),
+                  child: Text(
+                    'Reply',
+                    style: TextStyle(
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+
             ],
           ),
         ),

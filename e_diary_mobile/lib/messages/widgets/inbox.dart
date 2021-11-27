@@ -36,14 +36,16 @@ class InboxWidget extends StatelessWidget {
           itemCount: messages.length,
           itemBuilder: (context, index) {
             return ListTile(
-              leading: const Icon(Icons.message, size: 30.0),
-              trailing: const Icon(Icons.keyboard_arrow_right),
+              leading: const Icon(Icons.message,color: Colors.white, size: 30.0),
+              trailing: const Icon(Icons.keyboard_arrow_right, color: Colors.white),
               title: _title('${messages[index].title}',
-                  const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
+                  const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.white)),
               selected: messages[index].status ==
                   MessageStatus.SENT.formattedToString(),
               subtitle: Text(
-                  'From: ${messages[index].sendersName} \nDate: ${messages[index].simpleDateFormat}'),
+                  'From: ${messages[index].sendersName} \nDate: ${messages[index].simpleDateFormat}',
+                  style: TextStyle(color: Colors.white)
+              ),
               dense: true,
               onTap: () => {
                 Navigator.push(

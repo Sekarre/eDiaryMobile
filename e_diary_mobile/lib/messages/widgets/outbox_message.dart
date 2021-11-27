@@ -48,19 +48,39 @@ class OutboxMessageWidget extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
+              const SizedBox(
+                height: 20,
+              ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 controller: _titleController,
                 enabled: false,
                 maxLines: 1,
-                decoration: InputDecoration(labelText: "Title: "),
+                decoration: InputDecoration(
+                    disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                    ),
+                    labelText: "Title: ",
+                    labelStyle: TextStyle(color: Colors.white)
+                ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 enabled: false,
                 minLines: 5,
                 maxLines: null,
                 controller: _contentController,
-                decoration: InputDecoration(labelText: message.content),
-              )
+                decoration: InputDecoration(
+                    disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                    ),
+                    labelText: "Content: ",
+                    labelStyle: TextStyle(color: Colors.white)
+                ),
+              ),
             ],
           ),
         ),

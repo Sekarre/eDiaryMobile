@@ -43,7 +43,7 @@ class NavDrawer extends StatelessWidget {
   Drawer drawDefaultSidebar(BuildContext context) {
     return Drawer(
       child: new Container(
-        color: Color(0xFFF3E5F5),
+        color: Color(0xFF303030),
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -71,7 +71,7 @@ class NavDrawer extends StatelessWidget {
   Drawer drawDeputyHeadSidebar(BuildContext context) {
     return Drawer(
       child: new Container(
-        color: Color(0xFFF3E5F5),
+        color: Color(0xFF303030),
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -101,7 +101,7 @@ class NavDrawer extends StatelessWidget {
   Drawer drawHeadmasterSidebar(BuildContext context) {
     return Drawer(
       child: new Container(
-        color: Color(0xFFF3E5F5),
+        color: Color(0xFF303030),
         child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -133,8 +133,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile homeTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.home),
-      title: Text('Home'),
+      leading: Icon(Icons.home_outlined, color: Colors.white),
+      title: Text('Home', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.push(
             context,
@@ -148,8 +148,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile profileTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.verified_user),
-      title: Text('Profile'),
+      leading: Icon(Icons.person_outlined, color: Colors.white),
+      title: Text('Profile', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.push(
             context,
@@ -163,8 +163,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile messagesTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.exit_to_app),
-      title: Text('Messages'),
+      leading: Icon(Icons.email_outlined, color: Colors.white),
+      title: Text('Messages', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.pushReplacement(
           context,
@@ -176,8 +176,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile noticesHomeTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.circle_notifications),
-      title: Text('Notices'),
+      leading: Icon(Icons.circle_notifications_outlined, color: Colors.white),
+      title: Text('Notices', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.pushReplacement(
           context,
@@ -189,8 +189,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile noticesTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.circle_notifications),
-      title: Text('Notices'),
+      leading: Icon(Icons.circle_notifications_outlined, color: Colors.white),
+      title: Text('Notices', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.pushReplacement(
           context,
@@ -202,8 +202,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile manageClassTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.exit_to_app),
-      title: Text('Manage class'),
+      leading: Icon(Icons.article_outlined, color: Colors.white),
+      title: Text('Manage class', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.pushReplacement(
           context,
@@ -215,8 +215,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile createClassTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.exit_to_app),
-      title: Text('Create class'),
+      leading: Icon(Icons.create_outlined, color: Colors.white),
+      title: Text('Create class', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.pushReplacement(
           context,
@@ -228,8 +228,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile teacherReportTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.picture_as_pdf),
-      title: Text('Teacher report'),
+      leading: Icon(Icons.picture_as_pdf_outlined, color: Colors.white),
+      title: Text('Teacher report', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.push(
           context,
@@ -241,8 +241,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile closeYearTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.assignment_late_outlined),
-      title: Text('Close school year'),
+      leading: Icon(Icons.assignment_late_outlined, color: Colors.white),
+      title: Text('Close school year', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.push(
           context,
@@ -254,8 +254,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile lastYearTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.exit_to_app),
-      title: Text('Last years archive'),
+      leading: Icon(Icons.archive_outlined, color: Colors.white),
+      title: Text('Last years archive', style: TextStyle(color: Colors.white)),
       onTap: () => {
         Navigator.push(
           context,
@@ -267,8 +267,8 @@ class NavDrawer extends StatelessWidget {
 
   ListTile logoutTile(BuildContext context) {
     return ListTile(
-      leading: Icon(Icons.exit_to_app),
-      title: Text('Logout'),
+      leading: Icon(Icons.exit_to_app_outlined, color: Colors.white),
+      title: Text('Logout', style: TextStyle(color: Colors.white)),
       onTap: () => {
         logout(),
         Navigator.pushReplacement(

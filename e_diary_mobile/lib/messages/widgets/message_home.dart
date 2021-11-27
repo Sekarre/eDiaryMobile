@@ -52,7 +52,7 @@ class MessagesWidget extends StatelessWidget {
 
 Widget sendMessage(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
           context,
@@ -72,14 +72,15 @@ Widget sendMessage(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.verified_user,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -91,7 +92,10 @@ Widget sendMessage(BuildContext context) {
                   child: Text(
                     "New Message",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -105,7 +109,7 @@ Widget sendMessage(BuildContext context) {
 
 Widget outbox(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
           context,
@@ -125,14 +129,15 @@ Widget outbox(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.verified_user,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -144,7 +149,10 @@ Widget outbox(BuildContext context) {
                   child: Text(
                     "Outbox",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
                   ),
                 ),
               )
@@ -158,7 +166,7 @@ Widget outbox(BuildContext context) {
 
 Widget inbox(BuildContext context) {
   return InkWell(
-    splashColor: Colors.deepPurple,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
           context,
@@ -178,14 +186,15 @@ Widget inbox(BuildContext context) {
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.circular(100.0)),
+                      BorderRadius.circular(30.0)),
                   elevation: 5,
+                  color: Color(0xFF424242),
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Icon(
                       Icons.verified_user,
                       size: 50,
-                      color: Colors.amber,
+                      color: Color(0xFF2E7D32),
                     ),
                   ),
                 ),
@@ -197,7 +206,10 @@ Widget inbox(BuildContext context) {
                   child: Text(
                     "Inbox",
                     textAlign: TextAlign.center,
-                    style: TextStyle(),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
                   ),
                 ),
               )
