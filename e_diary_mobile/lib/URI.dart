@@ -5,11 +5,9 @@ Uri SERVER_CHANGE_PASSWORD = Uri.parse("$SERVER_IP/auth/password-change");
 
 Uri SERVER_USER = Uri.parse("$SERVER_IP/user");
 Uri SERVER_USER_PROFILE = Uri.parse("$SERVER_IP/user/profile");
-
 Uri SERVER_USER_INBOX = Uri.parse("$SERVER_IP/user/read-messages");
 Uri SERVER_USER_OUTBOX = Uri.parse("$SERVER_IP/user/send-messages");
 Uri SERVER_USER_SEND_MESSAGE = Uri.parse("$SERVER_IP/user/new-message");
-
 Uri SERVER_USER_NOTICES = Uri.parse("$SERVER_IP/user/notices");
 
 Uri SERVER_HEADMASTER_TEACHER = Uri.parse("$SERVER_IP/headmaster/teacher-report/teachers");
@@ -19,3 +17,6 @@ Uri SERVER_HEADMASTER_PAST_YEARS_REPORTS_STUDENTS = Uri.parse("$SERVER_IP/headma
 Uri SERVER_HEADMASTER_PAST_YEARS_REPORTS_TEACHERS = Uri.parse("$SERVER_IP/headmaster/end-year-reports/teachers");
 Uri SERVER_HEADMASTER_PAST_YEARS = Uri.parse("$SERVER_IP/headmaster/end-year-reports/years");
 Uri SERVER_HEADMASTER_PAST_YEARS_REPORTS = Uri.parse("$SERVER_IP/headmaster/end-year-reports");
+
+Uri SERVER_DEPUTY_UNASSIGNED_TEACHERS = Uri.parse("$SERVER_IP/deputy-head/school-classes/unassigned-teachers");
+Uri SERVER_DEPUTY_CREATE_CLASS = Uri.parse("$SERVER_IP/deputy-head/school-classes");

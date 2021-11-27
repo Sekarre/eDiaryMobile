@@ -6,6 +6,7 @@ import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notices.dart';
 import 'package:e_diary_mobile/profile/profile.dart';
 import 'package:e_diary_mobile/reports/widgets/teacher_report.dart';
+import '../schoolClass/widgets/school_class.dart';
 import 'package:e_diary_mobile/schoolyears/widgets/past_school_years.dart';
 import 'package:e_diary_mobile/schoolyears/widgets/school_year_close.dart';
 import 'package:e_diary_mobile/shared/components/app_common.dart';
@@ -219,7 +220,7 @@ class NavDrawer extends StatelessWidget {
       onTap: () => {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => MyApp()),
+          MaterialPageRoute(builder: (context) => SchoolClassWidget()),
         ),
       },
     );
