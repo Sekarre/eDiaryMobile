@@ -53,7 +53,7 @@ class OutboxWidget extends StatelessWidget {
             );
           },
           separatorBuilder: (context, index) {
-            return const Divider();
+            return const Divider(color: Color(0xFF2E7D32), thickness: 2, indent: 10, endIndent: 10,);
           },
         ),
       ),

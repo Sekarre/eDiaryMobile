@@ -22,24 +22,32 @@ class NoticesWidget extends StatelessWidget {
         });
   }
 
-  Scaffold noticesListView(BuildContext context, List<Notice> notices) {
-    return Scaffold(
-      appBar: buildAppBar("Notices"),
-      body: ListView.separated(
-        itemCount: notices.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: _title('${notices[index].title}',
-                const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)),
-            subtitle: _dateAuthorAndContent('${notices[index].date}',
-                '${notices[index].authorName}', '${notices[index].content}'),
-            dense: true,
-            onTap: () => null,
-          );
-        },
-        separatorBuilder: (context, index) {
-          return const Divider();
-        },
+  Container noticesListView(BuildContext context, List<Notice> notices) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: buildBoxDecoration(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.transparent,
+        appBar: buildAppBar("Notices"),
+        body: ListView.separated(
+          itemCount: notices.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: const Icon(Icons.notifications_active,color: Colors.white, size: 30.0),
+              title: _title('${notices[index].title}',
+                  const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white)),
+              subtitle: _dateAuthorAndContent('${notices[index].date}',
+                  '${notices[index].authorName}', '${notices[index].content}'),
+              dense: true,
+              onTap: () => null,
+            );
+          },
+          separatorBuilder: (context, index) {
+            return const Divider(color: Color(0xFF2E7D32), thickness: 2, indent: 10, endIndent: 10,);
+          },
+        ),
       ),
     );
   }
@@ -56,34 +64,34 @@ class NoticesWidget extends StatelessWidget {
   }
 
   Widget _dateAuthorAndContent(String date, String author, String content) {
-    var textStyle = TextStyle(fontSize: 13.0, fontStyle: FontStyle.italic, letterSpacing: 1);
-    var moreLessStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.deepPurple);
+    var textStyle = TextStyle(fontSize: 13.0, fontStyle: FontStyle.italic, letterSpacing: 1, color: Colors.white);
+    var moreLessStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF2E7D32));
 
     return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget> [
-          Text(
-            date,
-            style: textStyle,
-          ),
-          Text(
-            author,
-            style: textStyle,
-          ),
-           ReadMoreText(
-            '\n$content',
-            trimLines: 5,
-            trimMode: TrimMode.Line,
-            trimCollapsedText: 'Show more',
-            trimExpandedText: 'Show less',
-            style: TextStyle(fontSize: 14, color: Colors.black),
-            moreStyle: moreLessStyle,
-            lessStyle: moreLessStyle,
-          )
-        ],
-      )
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget> [
+            Text(
+              date,
+              style: textStyle,
+            ),
+            Text(
+              author,
+              style: textStyle,
+            ),
+            ReadMoreText(
+              '\n$content',
+              trimLines: 5,
+              trimMode: TrimMode.Line,
+              trimCollapsedText: 'Show more',
+              trimExpandedText: 'Show less',
+              style: TextStyle(fontSize: 15, color: Colors.white),
+              moreStyle: moreLessStyle,
+              lessStyle: moreLessStyle,
+            )
+          ],
+        )
     );
   }
 

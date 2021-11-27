@@ -69,6 +69,7 @@ class LoginPage extends StatelessWidget {
             ),
             height: 60.0,
             child: TextField(
+              cursorColor: Color(0xFF2E7D32),
                 controller: _usernameController,
                 keyboardType: TextInputType.name,
                 style: TextStyle(color: Colors.white),
@@ -115,6 +116,7 @@ class LoginPage extends StatelessWidget {
             ),
             height: 60.0,
             child: TextField(
+              cursorColor: Color(0xFF2E7D32),
                 controller: _passwordController,
                 obscureText: true,
                 keyboardType: TextInputType.visiblePassword,

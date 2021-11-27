@@ -5,6 +5,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 
 openPopup(context, String mainText, String hintText) {
   Alert(
+
       context: context,
       title: "",
       content: Column(
@@ -15,6 +16,7 @@ openPopup(context, String mainText, String hintText) {
       ),
       buttons: [
         DialogButton(
+          color: Color(0xFF2E7D32),
           onPressed: () async {
             Navigator.of(context, rootNavigator: true).pop();
           },

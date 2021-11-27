@@ -16,6 +16,7 @@ class NoticeHome extends StatelessWidget {
       width: double.infinity,
       decoration: buildBoxDecoration(),
       child: Scaffold(
+        backgroundColor: Colors.transparent,
       drawer: NavDrawer(),
       appBar: buildAppBar("Notices"),
       body: FutureBuilder<String>(
@@ -49,7 +50,7 @@ class NoticeWidget extends StatelessWidget {
 
 Widget listNotices(BuildContext context) {
   return InkWell(
-    splashColor: Colors.amber,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
           context,
@@ -81,12 +82,13 @@ Widget listNotices(BuildContext context) {
                         borderRadius:
                         BorderRadius.circular(100.0)),
                     elevation: 5,
+                    color: Color(0xFF424242),
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Icon(
-                        Icons.verified_user,
+                        Icons.notifications,
                         size: 50,
-                        color: Colors.amber,
+                        color: Color(0xFF2E7D32),
                       ),
                     ),
                   ),
@@ -98,7 +100,10 @@ Widget listNotices(BuildContext context) {
                     child: Text(
                       "Notices",
                       textAlign: TextAlign.center,
-                      style: TextStyle(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20
+                      ),
                     ),
                   ),
                 )
@@ -113,7 +118,7 @@ Widget listNotices(BuildContext context) {
 
 Widget addNotices(BuildContext context) {
   return InkWell(
-    splashColor: Colors.amber,
+    splashColor: Color(0xFF2E7D32),
     onTap: () => {
       Navigator.push(
           context,
@@ -145,12 +150,13 @@ Widget addNotices(BuildContext context) {
                         borderRadius:
                         BorderRadius.circular(100.0)),
                     elevation: 5,
+                    color: Color(0xFF424242),
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Icon(
-                        Icons.verified_user,
+                        Icons.notification_add,
                         size: 50,
-                        color: Colors.amber,
+                        color: Color(0xFF2E7D32),
                       ),
                     ),
                   ),
@@ -162,7 +168,10 @@ Widget addNotices(BuildContext context) {
                     child: Text(
                       "Add Notice",
                       textAlign: TextAlign.center,
-                      style: TextStyle(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20
+                      ),
                     ),
                   ),
                 )

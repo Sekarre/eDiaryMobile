@@ -54,39 +54,67 @@ class ProfilePage extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
+          const SizedBox(
+            height: 20,
+          ),
           TextField(
             style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _nameController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Name:",
+            decoration: InputDecoration(
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+              ),
+              labelText: "Name:",
               labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           TextField(
             style: TextStyle(color: Colors.white, fontSize: 15.0),
             enabled: false,
             maxLines: null,
             controller: _usernameController,
-            decoration: InputDecoration(labelText: data.username,
+            decoration: InputDecoration(
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+              ),
+              labelText: data.username,
               labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           TextField(
             style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _roleController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Roles:",
+            decoration: InputDecoration(
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+              ),
+              labelText: "Roles:",
               labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
             ),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           TextField(
             style: TextStyle(color: Colors.white, fontSize: 15.0),
             controller: _addressController,
             enabled: false,
             maxLines: null,
-            decoration: InputDecoration(labelText: "Address:",
+            decoration: InputDecoration(
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+              ),
+              labelText: "Address:",
               labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
             ),
           ),
@@ -96,10 +124,10 @@ class ProfilePage extends StatelessWidget {
             },
             child: Text('Change password'),
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFAB47BC),
+              primary: Color(0xFF2E7D32),
               shape: StadiumBorder(
                  side: BorderSide(
-                  color: Color(0xFF8E24AA), width: 1)),
+                  color: Color(0xFF2E7D32), width: 1)),
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold
               )
@@ -117,28 +145,61 @@ class ProfilePage extends StatelessWidget {
         title: "LOGIN",
         content: Column(
           children: <Widget>[
+            const SizedBox(
+              height: 20,
+            ),
             TextField(
-             controller: _oldPasswordController ,
+              cursorColor: Color(0xFF2E7D32),
+              controller: _oldPasswordController ,
               obscureText: true,
               decoration: InputDecoration(
-                icon: Icon(Icons.lock),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF2E7D32),),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF2E7D32),),
+                ),
+                icon: Icon(Icons.lock_outlined, color: Colors.white),
                 labelText: 'Old password',
+                labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             TextField(
-             controller: _newPasswordController ,
+              cursorColor: Color(0xFF2E7D32),
+              controller: _newPasswordController ,
               obscureText: true,
               decoration: InputDecoration(
-                icon: Icon(Icons.lock),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF2E7D32),),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF2E7D32),),
+                ),
+                icon: Icon(Icons.lock_outlined, color: Colors.white),
                 labelText: 'New password',
+                labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             TextField(
-             controller: _confirmPasswordController ,
+              cursorColor: Color(0xFF2E7D32),
+              controller: _confirmPasswordController ,
               obscureText: true,
               decoration: InputDecoration(
-                icon: Icon(Icons.lock),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF2E7D32),),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Color(0xFF2E7D32),),
+                ),
+                icon: Icon(Icons.lock_outlined, color: Colors.white),
                 labelText: 'Confirm password',
+                labelStyle: new TextStyle(color: Colors.white, fontSize: 20.0),
               ),
             ),
           ],
@@ -158,8 +219,8 @@ class ProfilePage extends StatelessWidget {
                 openPopup(context, "An Error Occurred", "Confirm password does not match NEW password");
               }
             },
-            color: Color(0xFFAB47BC),
-            border: Border.all(color: Color(0xFF8E24AA), width: 2.0, style: BorderStyle.solid),
+            color: Color(0xFF2E7D32),
+            border: Border.all(color: Color(0xFF2E7D32), width: 2.0, style: BorderStyle.solid),
             child: Text(
               "Change",
               style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
