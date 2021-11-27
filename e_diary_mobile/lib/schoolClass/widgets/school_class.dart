@@ -7,6 +7,7 @@ import 'package:e_diary_mobile/shared/components/no_data.dart';
 import 'package:e_diary_mobile/shared/error_messages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../school_class_service.dart';
@@ -41,8 +42,14 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
         });
   }
 
-  Scaffold teachersListView(BuildContext context, List<Teacher> teachers) {
-    return Scaffold(
+  Container teachersListView(BuildContext context, List<Teacher> teachers) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: buildBoxDecoration(),
+      child: Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.transparent,
       appBar: buildAppBar("Create class"),
       body: Stepper(
         type: StepperType.horizontal,
@@ -74,14 +81,19 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
         controlsBuilder: (context, {onStepContinue, onStepCancel}) {
           final isLastStep = _activeStepIndex == stepList().length - 1;
           return Container(
+            padding: EdgeInsets.symmetric(vertical:25.0),
+            width: double.infinity,
             child: Row(
               children: [
                 Expanded(
                   child: ElevatedButton(
                     onPressed: onStepContinue,
                     child: (isLastStep)
-                        ? const Text('create')
+                        ? const Text('Create')
                         : const Text('Next'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF2E7D32),
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -92,12 +104,16 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
                     child: ElevatedButton(
                       onPressed: onStepCancel,
                       child: const Text('Back'),
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFF2E7D32),
+                      ),
                     ),
                   )
               ],
             ),
           );
         },
+      ),
       ),
     );
   }
@@ -114,8 +130,8 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
             itemCount: teachers.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text('${teachers[index].name}'),
-                leading: Icon(Icons.person),
+                title: Text('${teachers[index].name}', style: TextStyle(color: Colors.white)),
+                leading: Icon(Icons.person, color: Colors.white, size: 30,),
                 onTap: () => {
                   setState(() {
                     _chosenTeacherId = teachers[index].id;
@@ -141,21 +157,35 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
                 height: 8,
               ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 enabled: false,
                 controller: formTutorController,
                 decoration: const InputDecoration(
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
                   border: OutlineInputBorder(),
                   labelText: "Form tutor",
+                  labelStyle: TextStyle(color: Colors.white),
                 ),
               ),
               const SizedBox(
                 height: 8,
               ),
               TextField(
+                style: TextStyle(color: Colors.white),
+                cursorColor: Color(0xFF2E7D32),
                 controller: classNameController,
                 decoration: const InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
                   border: OutlineInputBorder(),
                   labelText: 'Class name',
+                  labelStyle: TextStyle(color: Colors.white),
                 ),
               ),
             ],
@@ -170,8 +200,10 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('Form Tutor : ${formTutorController.text}'),
-                Text('Class name : ${classNameController.text}'),
+                Text('Form Tutor : ${formTutorController.text}',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
+                Text('Class name : ${classNameController.text}',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
               ],
             )))
   ];

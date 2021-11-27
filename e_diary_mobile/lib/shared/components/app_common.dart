@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 BoxDecoration buildBoxDecoration() {
   return const BoxDecoration(
     color: Color(0xFF212121),
-
   );
 }
 
