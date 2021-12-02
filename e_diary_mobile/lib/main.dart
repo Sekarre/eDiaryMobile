@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'eDiary',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        brightness: Brightness.dark,
       ),
       home: FutureBuilder(
           future: jwtOrEmpty,

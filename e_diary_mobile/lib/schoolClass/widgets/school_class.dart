@@ -52,7 +52,7 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
       backgroundColor: Colors.transparent,
       appBar: buildAppBar("Create class"),
       body: Stepper(
-        type: StepperType.horizontal,
+        type: StepperType.vertical,
         currentStep: _activeStepIndex,
         steps: stepList(),
         onStepContinue: () {
@@ -122,7 +122,7 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
     Step(
       state: _activeStepIndex <= 0 ? StepState.editing : StepState.complete,
       isActive: _activeStepIndex >= 0,
-      title: const Text('Form Tutor'),
+      title: const Text('Form Tutor', style: TextStyle(color: Colors.white)),
       content: Column(
         children: <Widget>[
           ListView.builder(
@@ -149,7 +149,7 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
         state:
         _activeStepIndex <= 1 ? StepState.editing : StepState.complete,
         isActive: _activeStepIndex >= 1,
-        title: const Text('Class'),
+        title: const Text('Class', style: TextStyle(color: Colors.white)),
         content: Container(
           child: Column(
             children: [
@@ -194,7 +194,7 @@ class _SchoolClassWidget extends State<SchoolClassWidget> {
     Step(
         state: StepState.complete,
         isActive: _activeStepIndex >= 2,
-        title: const Text('Confirm'),
+        title: const Text('Confirm', style: TextStyle(color: Colors.white)),
         content: Container(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

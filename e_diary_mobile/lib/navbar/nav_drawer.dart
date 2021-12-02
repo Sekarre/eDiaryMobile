@@ -218,7 +218,7 @@ class NavDrawer extends StatelessWidget {
       leading: Icon(Icons.create_outlined, color: Colors.white),
       title: Text('Create class', style: TextStyle(color: Colors.white)),
       onTap: () => {
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => SchoolClassWidget()),
         ),

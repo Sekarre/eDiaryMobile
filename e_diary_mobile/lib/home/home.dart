@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
         },
       ),
       floatingActionButton:
-      FloatingActionButton(child: Icon(Icons.person), onPressed: () {
+      FloatingActionButton(child: Icon(Icons.person, color: Colors.white,), onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -315,7 +315,7 @@ Widget createClass(BuildContext context) {
   return InkWell(
     splashColor: Color(0xFF2E7D32),
     onTap: () => {
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => SchoolClassWidget()),
       ),
