@@ -73,7 +73,7 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
     if (_dropdownItems.isNotEmpty) {
       return newTeacherReport(context);
     } else {
-      return NoDataWidget(NEW_MESSAGE_ERROR);
+      return NoDataWidget(NO_TEACHERS);
     }
   }
 

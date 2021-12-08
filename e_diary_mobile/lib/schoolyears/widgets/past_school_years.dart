@@ -214,16 +214,6 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
     });
   }
 
-  downloadSingleReport(int reportId) async {
-    List<int> reportIds = [];
-    reportIds.add(reportId);
-
-    EndYearReportRequest request = EndYearReportRequest(reportIds);
-    var result = await generateEndYearReport(request);
-
-    return result;
-  }
-
   Future<String?> downloadReports() async {
     List<int> reportIds = [];
 
@@ -251,7 +241,7 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
       context: context,
       builder: (BuildContext context) => CupertinoAlertDialog(
         title: Text('Success'),
-        content: Text('Report downloaded'),
+        content: Text('Report downloaded as .zip file'),
         actions: [
           CupertinoDialogAction(
             isDefaultAction: true,
@@ -259,11 +249,13 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
             onPressed: () async {
               OpenFile.open(path);
               Navigator.of(context, rootNavigator: true).pop();
+              Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) =>  PastSchoolYearsWidget()),
+              );
             },
           )
         ],
       ),
     );
   }
-
 }

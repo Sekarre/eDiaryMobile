@@ -50,15 +50,35 @@ class _SchoolYearCloseWidget extends State<SchoolYearCloseWidget> {
                 borderRadius: BorderRadius.circular(30.0),
               ),
               color: Color(0xFF2E7D32),
-              child: Text(
-                'Close school year',
-                style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 1.5,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
+              child: _isPerformingAction ?
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      child: CircularProgressIndicator(),
+                      height: 20.0,
+                      width: 25,
+                    ),
+                    Text(
+                      ' Close school year',
+                      style: TextStyle(
+                        color: Colors.white,
+                        letterSpacing: 1.5,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                ) :
+                Text(
+                  'Close school year',
+                  style: TextStyle(
+                    color: Colors.white,
+                    letterSpacing: 1.5,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
             ),
           ),
         ],
