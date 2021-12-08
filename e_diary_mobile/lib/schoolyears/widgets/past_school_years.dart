@@ -11,6 +11,7 @@ import 'package:e_diary_mobile/shared/error_messages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:open_file/open_file.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../school_year_service.dart';
 
@@ -79,7 +80,7 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
                 key: Key(reports[index].id.toString()));
           },
           separatorBuilder: (context, index) {
-            return const Divider();
+            return const Divider(color: Color(0xFF2E7D32), thickness: 1, indent: 10, endIndent: 10,);
           },
         ),
         floatingActionButton: selectedList.isEmpty ? buildYearSelect() : null,
@@ -254,13 +255,10 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
         actions: [
           CupertinoDialogAction(
             isDefaultAction: true,
-            child: Text('Open'),
+            child: Text('Open', style: TextStyle(color: Color(0xFF2E7D32))),
             onPressed: () async {
               OpenFile.open(path);
               Navigator.of(context, rootNavigator: true).pop();
-              Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) =>  PastSchoolYearsWidget()),
-              );
             },
           )
         ],

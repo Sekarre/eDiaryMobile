@@ -49,7 +49,7 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
         actions: [
           CupertinoDialogAction(
             isDefaultAction: true,
-            child: Text('Open'),
+            child: Text('Open', style: TextStyle(color: Color(0xFF2E7D32))),
             onPressed: () async {
               OpenFile.open(path);
               Navigator.of(context, rootNavigator: true).pop();
