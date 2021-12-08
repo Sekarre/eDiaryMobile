@@ -119,59 +119,136 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              RaisedButton(
-                onPressed: () => _selectStartDate(context), // Refer step 3
-                child: Text(
-                  'Select start date',
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-                color: Colors.greenAccent,
+              const SizedBox(
+                height: 20,
               ),
-              RaisedButton(
-                onPressed: () => _selectEndDate(context), // Refer step 3
-                child: Text(
-                  'Select end date',
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
+              ListTile(
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    SizedBox( child: RaisedButton(
+                      elevation: 5.0,
+                      onPressed: () => _selectStartDate(context),
+                      padding: EdgeInsets.all(10.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      color: Color(0xFF2E7D32),
+                      child: Text(
+                        'Select start date',
+                        style: TextStyle(
+                          color: Colors.white,
+                          letterSpacing: 1.5,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),),
+                    SizedBox( child: RaisedButton(
+                      elevation: 5.0,
+                      onPressed: () => _selectEndDate(context),
+                      padding: EdgeInsets.all(10.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      color: Color(0xFF2E7D32),
+                      child: Text(
+                        'Select end date',
+                        style: TextStyle(
+                          color: Colors.white,
+                          letterSpacing: 1.5,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),),
+                  ],
                 ),
-                color: Colors.greenAccent,
+              ),
+
+
+              const SizedBox(
+                height: 20,
               ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 controller: _startTimeController,
-                enabled: false,
-                decoration: const InputDecoration(labelText: 'Date from'),
+                readOnly: true,
+                maxLines: null,
+                decoration: InputDecoration(
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  enabled: false,
+                  labelText: 'Date from',
+                  labelStyle: TextStyle(color: Colors.white),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      _resetDropdown();
+                    },
+                    icon: Icon(Icons.clear,color: Color(0xFF2E7D32),),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
+                style: TextStyle(color: Colors.white),
                 controller: _endTimeController,
-                enabled: false,
-                decoration: const InputDecoration(labelText: 'Date to'),
+                readOnly: true,
+                maxLines: null,
+                decoration: InputDecoration(
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  enabled: false,
+                  labelText: 'Date to',
+                  labelStyle: TextStyle(color: Colors.white),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      _resetDropdown();
+                    },
+                    icon: Icon(Icons.clear,color: Color(0xFF2E7D32),),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
                 controller: _teachersController,
                 readOnly: true,
                 maxLines: null,
                 decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFF2E7D32), width: 2.0),
+                  ),
                   enabled: true,
                   labelText: 'Teachers',
+                  labelStyle: TextStyle(color: Colors.white),
                   suffixIcon: IconButton(
                     onPressed: () {
                       _resetDropdown();
                     },
-                    icon: Icon(Icons.clear),
+                    icon: Icon(Icons.clear,color: Color(0xFF2E7D32),),
                   ),
                 ),
               ),
               DropdownButton<Teacher>(
-                hint: Text('To: '),
+                hint: Text('From: ', style: TextStyle(color: Colors.white)),
                 value: null,
-                icon: const Icon(Icons.arrow_drop_down),
+                icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
                 iconSize: 24,
                 elevation: 16,
-                style: const TextStyle(color: Colors.deepPurple),
+                dropdownColor: Color(0xFF424242),
+                style: const TextStyle(color: Colors.white, fontSize: 20),
                 underline: Container(
                   height: 2,
-                  color: Colors.deepPurpleAccent,
+                  color: Color(0xFF2E7D32),
                 ),
                 onChanged: (Teacher? teacher) {
                   addTeacher(teacher);
@@ -179,7 +256,11 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
                 },
                 items: _dropdownItems,
               ),
-              TextButton(
+              Container(
+                padding: EdgeInsets.symmetric(vertical:25.0),
+                width: 150,
+                child: RaisedButton(
+                  elevation: 5.0,
                   onPressed: () async {
                     var path = await createAndGenerateReport();
                     if (path != null) {
@@ -189,7 +270,22 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
                           'Try later');
                     }
                   },
-                  child: Text("Generate"))
+                  padding: EdgeInsets.all(10.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  color: Color(0xFF2E7D32),
+                  child: Text(
+                    'Generate',
+                    style: TextStyle(
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
