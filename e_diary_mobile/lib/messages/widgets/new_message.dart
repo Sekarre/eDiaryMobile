@@ -65,7 +65,7 @@ class _NewMessageWidget extends State<NewMessageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (_dropdownItems.isNotEmpty) {
+    if (users.isNotEmpty) {
       return newMessageForm(context);
     } else {
       return NoDataWidget(NEW_MESSAGE_ERROR);

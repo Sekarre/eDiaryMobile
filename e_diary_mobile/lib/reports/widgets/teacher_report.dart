@@ -70,7 +70,7 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (_dropdownItems.isNotEmpty) {
+    if (teachers.isNotEmpty) {
       return newTeacherReport(context);
     } else {
       return NoDataWidget(NO_TEACHERS);
