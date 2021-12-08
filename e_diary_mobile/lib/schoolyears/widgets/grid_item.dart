@@ -55,7 +55,7 @@ class _GridItemState extends State<GridItem> {
               padding: EdgeInsets.all(8.0),
               child: Icon(
                 Icons.check_circle,
-                color: Colors.blue,
+                color: Color(0xFF2E7D32),
               ),
             ),
           )

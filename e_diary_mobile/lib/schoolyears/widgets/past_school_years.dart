@@ -93,9 +93,9 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
     return Container(
         padding: const EdgeInsets.only(left: 10.0, right: 10.0),
         decoration: const ShapeDecoration(
-            color: Colors.white,
+            color: Color(0xFF303030),
             shape:  RoundedRectangleBorder(
-              side:  BorderSide(color: Colors.black),
+              side:  BorderSide(color: Color(0xFF212121),width: 2),
               borderRadius: BorderRadius.all(
                 Radius.circular(20.0),
               ),
@@ -105,13 +105,13 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
           child: DropdownButton<String>(
             hint: Text('Year: '),
             value: _selectedYear.toString(),
-            icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
+            icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
             iconSize: 24,
             elevation: 10,
-            style:  TextStyle(color: Colors.black),
+            style:  TextStyle(color: Colors.white),
             underline: Container(
               height: 1,
-              color: Colors.black,
+              color: Color(0xFF2E7D32),
             ),
             onChanged: (year) {
               setState(() {
@@ -119,7 +119,7 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
                 _loadReports(reportType);
               });
             },
-            dropdownColor: Colors.white,
+            dropdownColor: Color(0xFF303030),
             alignment: Alignment.center,
             items: _dropdownItems,
           ),
@@ -141,7 +141,15 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
               } else {
                 openPopup(context, 'Error while generating report', 'Try later');
               }},
-              child: Text('Download selected'),
+              child: Text(
+                  'Download selected',
+                style: TextStyle(
+                  color: Colors.white,
+                  letterSpacing: 1.5,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ),
         ],
@@ -157,7 +165,7 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
           ],
         ),
         actions: const <Widget>[],
-        backgroundColor: Color(0xFFAB47BC),
+        backgroundColor: Color(0xFF2E7D32),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(25.0),
@@ -170,16 +178,16 @@ class _PastSchoolYearsWidget extends State<PastSchoolYearsWidget> {
         BottomNavigationBarItem(
           icon: Icon(Icons.assignment_ind_outlined),
           label: 'Students',
-          backgroundColor: Colors.green,
+          backgroundColor: Color(0xFF2E7D32),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.school),
           label: 'Teachers',
-          backgroundColor: Colors.purple,
+          backgroundColor: Color(0xFF2E7D32),
         ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.amber[800],
+      selectedItemColor: Color(0xFF2E7D32),
       onTap: _onItemTapped,
     );
   }

@@ -37,14 +37,30 @@ class _SchoolYearCloseWidget extends State<SchoolYearCloseWidget> {
     return Center(
       child: Column(
         children: <Widget>[
-          Text('Placeholder'),
-          ElevatedButton(
-            onPressed: _isPerformingAction ? null : () {
-              _openPopup(context);
-            },
-            child: _isPerformingAction ? CircularProgressIndicator() : Text('Close school year'),
-            style: elevatedButtonStyle,
-          )
+          Container(
+            padding: EdgeInsets.symmetric(vertical:25.0),
+            width: 250,
+            child: RaisedButton(
+              elevation: 5.0,
+              onPressed: _isPerformingAction ? null : () {
+                _openPopup(context);
+              },
+              padding: EdgeInsets.all(15.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+              color: Color(0xFF2E7D32),
+              child: Text(
+                'Close school year',
+                style: TextStyle(
+                  color: Colors.white,
+                  letterSpacing: 1.5,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -78,30 +94,30 @@ class _SchoolYearCloseWidget extends State<SchoolYearCloseWidget> {
                     "Could not close the school year. \nTry again later");
               }
             },
-            color: Color(0xFFAB47BC),
-            border: Border.all(
-                color: Color(0xFF8E24AA), width: 2.0, style: BorderStyle.solid),
+            color: Color(0xFF2E7D32),
             child: const Text(
               "Yes",
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.normal),
+                color: Colors.white,
+                letterSpacing: 1.5,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           DialogButton(
             onPressed: () async {
               Navigator.of(buildContext, rootNavigator: true).pop();
             },
-            color: Color(0xFFAB47BC),
-            border: Border.all(
-                color: Color(0xFF8E24AA), width: 2.0, style: BorderStyle.solid),
+            color: Color(0xFF2E7D32),
             child: const Text(
               "No",
               style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.normal),
+                color: Colors.white,
+                letterSpacing: 1.5,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           )
         ]).show();
