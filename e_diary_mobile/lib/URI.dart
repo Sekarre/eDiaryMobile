@@ -20,3 +20,9 @@ Uri SERVER_HEADMASTER_PAST_YEARS_REPORTS = Uri.parse("$SERVER_IP/headmaster/end-
 
 Uri SERVER_DEPUTY_UNASSIGNED_TEACHERS = Uri.parse("$SERVER_IP/deputy-head/school-classes/unassigned-teachers");
 Uri SERVER_DEPUTY_CREATE_CLASS = Uri.parse("$SERVER_IP/deputy-head/school-classes");
+Uri SERVER_DEPUTY_CLASS_MANAGEMENT = Uri.parse("$SERVER_IP/deputy-head/school-classes");
+Uri SERVER_DEPUTY_CLASS_VIEW = Uri.parse("$SERVER_IP/deputy-head/school-classes");
+Uri SERVER_DEPUTY_UNASSIGNED_STUDENTS = Uri.parse("$SERVER_IP/deputy-head/school-classes/unassigned-students");
+Uri SERVER_DEPUTY_ADD_STUDENT = Uri.parse("$SERVER_IP/deputy-head/school-classes");
+Uri SERVER_DEPUTY_DELETE_CLASS = Uri.parse("$SERVER_IP/deputy-head/school-classes");
+Uri SERVER_DEPUTY_CHANGE_TEACHER = Uri.parse("$SERVER_IP/deputy-head/school-classes");

@@ -8,7 +8,7 @@ class Student {
   int userId;
   int id;
   String userName;
-  String className;
+  String? className;
 
   Student(this.userId, this.id, this.userName, this.className);
 

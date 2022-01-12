@@ -9,6 +9,7 @@ final String NO_NOTICES = 'No notices to display';
 final String NO_REPORTS = 'No reports to display';
 
 final String NO_TEACHERS = 'No teachers to display';
+final String NO_CLASSES = 'No classes to display';
 final String NO_FORM_TUTOR_SELECTED = 'No form tutor was selected';
 final String CLASSNAME_EMPTY = 'Class name cannot be empty';
 final String CLASSNAME_LESS_THAN_2 = 'Class name  must be at least two characters long';

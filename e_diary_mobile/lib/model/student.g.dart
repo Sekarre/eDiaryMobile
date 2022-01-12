@@ -10,7 +10,7 @@ Student _$StudentFromJson(Map<String, dynamic> json) => Student(
       json['userId'] as int,
       json['id'] as int,
       json['userName'] as String,
-      json['className'] as String,
+      json['className'] as String?,
     );
 
 Map<String, dynamic> _$StudentToJson(Student instance) => <String, dynamic>{

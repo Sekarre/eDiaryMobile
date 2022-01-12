@@ -1,3 +1,4 @@
+import 'package:e_diary_mobile/classManagement/widgets/classes_home.dart';
 import 'package:e_diary_mobile/messages/widgets/message_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notice_home.dart';
 import 'package:e_diary_mobile/notices/widgets/notices.dart';
@@ -369,7 +370,12 @@ Widget createClass(BuildContext context) {
 Widget manageClass(BuildContext context) {
   return InkWell(
     splashColor: Color(0xFF2E7D32),
-    onTap: () => null,
+    onTap: () => {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ClassesWidget()),
+      ),
+    },
     child: Card(
       elevation: 0,
       color: Colors.transparent,
