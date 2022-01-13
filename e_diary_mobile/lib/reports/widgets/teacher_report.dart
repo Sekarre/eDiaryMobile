@@ -97,7 +97,7 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
       context: context,
       initialDate: endDate,
       firstDate: DateTime(2020),
-      lastDate: DateTime(2022),
+      lastDate: DateTime(startDate.year + 15),
     );
     if (picked != null) {
       setState(() {
@@ -129,17 +129,10 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
                     SizedBox( child: RaisedButton(
                       elevation: 5.0,
                       onPressed: () => _selectStartDate(context),
-                      padding: EdgeInsets.all(10.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
                       color: Color(0xFF2E7D32),
                       child: Text(
                         'Select start date',
                         style: TextStyle(
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                          fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -147,17 +140,11 @@ class _TeacherReportWidget extends State<TeacherReportWidget> {
                     SizedBox( child: RaisedButton(
                       elevation: 5.0,
                       onPressed: () => _selectEndDate(context),
-                      padding: EdgeInsets.all(10.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
                       color: Color(0xFF2E7D32),
                       child: Text(
                         'Select end date',
                         style: TextStyle(
                           color: Colors.white,
-                          letterSpacing: 1.5,
-                          fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
